@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İ. Hüseyin Acan | Portfolyo</title>
+    <!-- SEO Meta Etiketleri -->
+    <meta name="description" content="İ. Hüseyin Acan - Yazılım Geliştirme (Web, Mobil, Masaüstü) ve Robotik Alanındaki Projeler, Başarılar ve Burslar Portfolyosu.">
+    <meta name="keywords" content="Hüseyin Acan, Portfolyo, Robotik, Yazılım, Web Geliştirme, Mobil Uygulama, Masaüstü Uygulama, Dumlupınar Üniversitesi, Google AI Bursiyeri, T3 Vakfı, Teknofest">
+    <meta name="author" content="İ. Hüseyin Acan">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Stil Dosyası -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Akışkan Cam Küreleri (Fluid Background Blobs) -->
+    <div class="blob-container">
+        <div class="blob blob-purple"></div>
+        <div class="blob blob-cyan"></div>
+        <div class="blob blob-indigo"></div>
+    </div>
+
+    <!-- Navigasyon Çubuğu -->
+    <header class="navbar-header">
+        <nav class="navbar" id="navbar">
+            <div class="nav-logo">
+                <a href="#hero">HA<span>.</span></a>
+            </div>
+            <div class="nav-links" id="nav-links">
+                <a href="#projects" class="nav-link">Projeler</a>
+                <a href="#orbital" class="nav-link">Başarılar & Burslar</a>
+                <a href="#skills" class="nav-link">Yetenekler</a>
+                <a href="#contact" class="nav-link">İletişim</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-btn-contact" onclick="window.location.href='#contact'">Bana Ulaşın</button>
+                <!-- Mobil Menü Butonu -->
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menüyü Aç/Kapat">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Giriş Bölümü -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">İ. Hüseyin Acan</h1>
+                <div class="hero-subtitle-container">
+                    <span class="hero-subtitle-static">Ben</span>
+                    <span class="hero-subtitle-dynamic" id="dynamic-role">Software Engineer</span>
+                    <span class="type-cursor">|</span>
+                </div>
+                <div class="hero-social-links">
+                    <a href="https://github.com/IHuseyinACAN" target="_blank" class="social-icon-link" aria-label="GitHub">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/h%C3%BCseyin-a%C3%A7an/" target="_blank" class="social-icon-link" aria-label="LinkedIn">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/hsynacn/" target="_blank" class="social-icon-link" aria-label="Instagram">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">Projelerimi Keşfet</a>
+                    <a href="#contact" class="btn btn-secondary">Bana Ulaşın</a>
+                </div>
+            </div>
+            <div class="hero-bottom-arrow">
+                <a href="#projects" aria-label="Aşağı Kaydır">
+                    <svg class="scroll-arrow" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Kaydırmaya Duyarlı Büyük Arka Plan Başlığı (Scroll Reveal Title) -->
+        <div class="scroll-reveal-container" id="projects-trigger">
+            <span class="scroll-bg-text" id="scroll-projects-text">CREATIONS</span>
+        </div>
+
+        <!-- Projeler Bölümü -->
+        <section id="projects" class="projects-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Projelerim</h2>
+                    <p class="section-subtitle">Yazılım ve robotik kesişiminde geliştirdiğim bazı projeler</p>
+                </div>
+
+                <!-- Filtreleme Butonları -->
+                <div class="filter-wrapper">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Hepsi</button>
+                        <button class="filter-btn" data-filter="robotics">Robotik</button>
+                        <button class="filter-btn" data-filter="web">Web Sitesi</button>
+                        <button class="filter-btn" data-filter="mobile">Mobil</button>
+                        <button class="filter-btn" data-filter="desktop">Masaüstü</button>
+                    </div>
+                </div>
+
+                <!-- Proje Grid Yapısı -->
+                <div class="projects-grid" id="projects-grid">
+                    
+                    <!-- 6 Eksenli Robot Kol -->
+                    <article class="project-card" data-category="robotics" data-project-id="robot-kol">
+                        <div class="project-card-inner">
+                            <div class="project-image-placeholder robotics-bg">
+                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M12 2c5.522 0 10 4.477 10 10s-4.478 10-10 10-10-4.477-10-10 4.478-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 8c0-.552.448-1 1-1s1 .448 1 1-.448 1-1 1-1-.448-1-1zm6 0c0-.552.448-1 1-1s1 .448 1 1-.448 1-1 1-1-.448-1-1zm-3.5 6c1.654 0 3-1.346 3-3h-6c0 1.654 1.346 3 3 3z"/></svg>
+                                <span class="project-tag">Robotik</span>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-name">6 Eksenli Robot Kol</h3>
+                                <p class="project-desc">Arduino tabanlı, 6 eksende serbest hareket yeteneğine sahip mekanik robot kol tasarımı ve kontrol yazılımı.</p>
+                                <div class="project-tech-tags">
+                                    <span>Arduino</span>
+                                    <span>Servo Motors</span>
+                                    <span>C++</span>
+                                    <span>CAD</span>
+                                </div>
+                                <div class="project-card-actions">
+                                    <button class="btn-card-details">Detaylar</button>
+                                    <a href="https://www.youtube.com/watch?v=ZEir102PxJ8" target="_blank" class="card-link" aria-label="YouTube Videosu">
+                                        <svg viewBox="0 0 24 24"><path d="M23.498 6.163c-.272-.98-1.04-1.748-2.02-2.02C19.716 3.745 12 3.745 12 3.745s-7.717 0-9.478.398c-.98.272-1.748 1.04-2.02 2.02C.1 7.925.1 12 .1 12s0 4.075.402 5.837c.272.98 1.04 1.748 2.02 2.02C4.283 20.255 12 20.255 12 20.255s7.717 0 9.478-.398c.98-.272 1.748-1.04 2.02-2.02C23.9 16.075 23.9 12 23.9 12s0-4.075-.402-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        <div class="card-glare"></div>
+                    </div>
+                </article>
+
+                    <!-- Dart Fırlatan Taret -->
+                    <article class="project-card" data-category="robotics" data-project-id="taret">
+                        <div class="project-card-inner">
+                            <div class="project-image-placeholder robotics-bg-2">
+                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M19 4h-14c-2.761 0-5 2.239-5 5v6c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-6c0-2.761-2.238-5-5-5zm-11 11h-3v-4h3v4zm6-2h-3v-2h3v2zm5 2h-3v-4h3v4z"/></svg>
+                                <span class="project-tag">Robotik</span>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-name">Dart Fırlatan Taret</h3>
+                                <p class="project-desc">Arduino kontrollü, pan-tilt servo mekanizması ile hedefleme yapabilen ve uzaktan kontrol edilebilen fırlatma sistemi.</p>
+                                <div class="project-tech-tags">
+                                    <span>Arduino</span>
+                                    <span>C/C++</span>
+                                    <span>Gömülü Sistemler</span>
+                                    <span>Donanım Tasarımı</span>
+                                </div>
+                                <div class="project-card-actions">
+                                    <button class="btn-card-details">Detaylar</button>
+                                </div>
+                            </div>
+                        <div class="card-glare"></div>
+                    </div>
+                </article>
+
+                    <!-- Odemy Web Site -->
+                    <article class="project-card" data-category="web" data-project-id="odemy">
+                        <div class="project-card-inner">
+                            <div class="project-image-placeholder web-bg">
+                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M12 2c5.522 0 10 4.477 10 10s-4.478 10-10 10-10-4.477-10-10 4.478-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.3 14.3c-.387.263-1.073.57-1.89.8-1.014.286-2.185.4-3.41.4-1.225 0-2.396-.114-3.41-.4-.817-.23-1.503-.537-1.89-.8-.328-.223-.59-.496-.59-.8v-4c0-.304.262-.577.59-.8.387-.263 1.073-.57 1.89-.8 1.014-.286 2.185-.4 3.41-.4 1.225 0 2.396.114 3.41.4.817.23 1.503.537 1.89.8.328.223.59.496.59.8v4c0 .304-.262.577-.59.8z"/></svg>
+                                <span class="project-tag">Web Sitesi</span>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-name">Odemy Platformu</h3>
+                                <p class="project-desc">PHP ve MySQL (PHPMyAdmin) tabanlı, kullanıcıların ders oluşturup satın alabildiği tam işlevsel e-öğrenme klonu.</p>
+                                <div class="project-tech-tags">
+                                    <span>PHP</span>
+                                    <span>MySQL</span>
+                                    <span>HTML/CSS</span>
+                                    <span>JavaScript</span>
+                                </div>
+                                <div class="project-card-actions">
+                                    <button class="btn-card-details">Detaylar</button>
+                                    <a href="https://github.com/IHuseyinACAN/Odemy-Web-Site-with-PHPMyAdmin" target="_blank" class="card-link" aria-label="GitHub Kodları">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        <div class="card-glare"></div>
+                    </div>
+                </article>
+
+                    <!-- IIRCE Web Site -->
+                    <article class="project-card" data-category="web" data-project-id="iirce">
+                        <div class="project-card-inner">
+                            <div class="project-image-placeholder web-bg-2">
+                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M12 2c5.522 0 10 4.477 10 10s-4.478 10-10 10-10-4.477-10-10 4.478-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 8c0-.552.448-1 1-1s1 .448 1 1-.448 1-1 1-1-.448-1-1zm6 0c0-.552.448-1 1-1s1 .448 1 1-.448 1-1 1-1-.448-1-1zm-3.5 6c1.654 0 3-1.346 3-3h-6c0 1.654 1.346 3 3 3z"/></svg>
+                                <span class="project-tag">Web Sitesi</span>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-name">IIRCE Konferans Platformu</h3>
+                                <p class="project-desc">Uluslararası Bilişim ve Robotik Konferansı için tasarlanan etkinlik, duyuru ve kayıt yönetimi içeren web sitesi.</p>
+                                <div class="project-tech-tags">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>JavaScript</span>
+                                    <span>Responsive</span>
+                                </div>
+                                <div class="project-card-actions">
+                                    <button class="btn-card-details">Detaylar</button>
+                                    <a href="https://github.com/IHuseyinACAN/-IIRCE" target="_blank" class="card-link" aria-label="GitHub Kodları">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        <div class="card-glare"></div>
+                    </div>
+                </article>
+
+                    <!-- IPO Tracker -->
+                    <article class="project-card" data-category="web" data-project-id="ipo">
+                        <div class="project-card-inner">
+                            <div class="project-image-placeholder web-bg-3">
+                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M21 3h-18c-1.654 0-3 1.346-3 3v12c0 1.654 1.346 3 3 3h18c1.654 0 3-1.346 3-3v-12c0-1.654-1.346-3-3-3zm-9 14h-6v-2h6v2zm3-4h-9v-2h9v2zm3-4h-12v-2h12v2z"/></svg>
+                                <span class="project-tag">Web Sitesi</span>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-name">IPO Tracker</h3>
+                                <p class="project-desc">İlk halka arz (IPO) takvimlerini, talep tarihlerini ve sonuçlarını dinamik olarak listeleyen ve takip eden sistem.</p>
+                                <div class="project-tech-tags">
+                                    <span>Web Tracker</span>
+                                    <span>API</span>
+                                    <span>JSON</span>
+                                    <span>CSS Grid</span>
+                                </div>
+                                <div class="project-card-actions">
+                                    <button class="btn-card-details">Detaylar</button>
+                                    <a href="https://github.com/IHuseyinACAN/ipo-tracker" target="_blank" class="card-link" aria-label="GitHub Kodları">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        <div class="card-glare"></div>
+                    </div>
+                </article>
+
+                    <!-- Body Metrics -->
+                    <article class="project-card" data-category="web" data-project-id="body-metrics">
+                        <div class="project-card-inner">
+                            <div class="project-image-placeholder web-bg-4">
+                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M12 3c-1.2 0-2.4 1.1-2.4 2.5 0 1.2.9 2.2 2 2.5-.2.5-.6.9-1.1.9h-2.1c-.8 0-1.4.6-1.4 1.4v2.7c0 .8.6 1.4 1.4 1.4h.4v6.6c0 .8.6 1.4 1.4 1.4h3.6c.8 0 1.4-.6 1.4-1.4v-6.6h.4c.8 0 1.4-.6 1.4-1.4v-2.7c0-.8-.6-1.4-1.4-1.4h-2.1c-.5 0-.9-.4-1.1-.9 1.1-.3 2-1.3 2-2.5 0-1.4-1.2-2.5-2.4-2.5z"/></svg>
+                                <span class="project-tag">Web Sitesi</span>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-name">Body Metrics</h3>
+                                <p class="project-desc">Kullanıcıların vücut ölçülerini girip BMI, yağ oranı ve fiziksel değişim grafikleriyle gelişimlerini izlediği web uygulaması.</p>
+                                <div class="project-tech-tags">
+                                    <span>JavaScript</span>
+                                    <span>Calculators</span>
+                                    <span>ChartJS</span>
+                                    <span>Local Storage</span>
+                                </div>
+                                <div class="project-card-actions">
+                                    <button class="btn-card-details">Detaylar</button>
+                                    <a href="https://github.com/IHuseyinACAN/body-metrics" target="_blank" class="card-link" aria-label="GitHub Kodları">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        <div class="card-glare"></div>
+                    </div>
+                </article>
+
+                    <!-- Kişisel Portfolyo -->
+                    <article class="project-card" data-category="web" data-project-id="portfolio">
+                        <div class="project-card-inner">
+                            <div class="project-image-placeholder web-bg-2">
+                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M12 2c5.522 0 10 4.477 10 10s-4.478 10-10 10-10-4.477-10-10 4.478-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 8c0-.552.448-1 1-1s1 .448 1 1-.448 1-1 1-1-.448-1-1zm6 0c0-.552.448-1 1-1s1 .448 1 1-.448 1-1 1-1-.448-1-1zm-3.5 6c1.654 0 3-1.346 3-3h-6c0 1.654 1.346 3 3 3z"/></svg>
+                                <span class="project-tag">Web Sitesi</span>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-name">Kişisel Portfolyo</h3>
+                                <p class="project-desc">Bu web sitesinin kendisi. Cam morfizasyonu (Glassmorphism) estetiği, 3D tilt kart yansımaları ve yörüngesel zaman çizelgesi içeren interaktif portfolyo.</p>
+                                <div class="project-tech-tags">
+                                    <span>HTML5 / CSS3</span>
+                                    <span>JavaScript</span>
+                                    <span>Glassmorphism</span>
+                                    <span>3D Effects</span>
+                                </div>
+                                <div class="project-card-actions">
+                                    <button class="btn-card-details">Detaylar</button>
+                                    <a href="https://github.com/IHuseyinACAN/personal-portfolio" target="_blank" class="card-link" aria-label="GitHub Kodları">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-glare"></div>
+                        </div>
+                    </article>
+
+                    <!-- MomentumFit -->
+                    <article class="project-card" data-category="desktop" data-project-id="momentumfit">
+                        <div class="project-card-inner">
+                            <div class="project-image-placeholder desktop-bg">
+                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M4 2h16c1.103 0 2 .897 2 2v12c0 1.103-.897 2-2 2h-7v2h3v2h-8v-2h3v-2h-7c-1.103 0-2-.897-2-2v-12c0-1.103.897-2 2-2zm16 2h-16v10h16v-10z"/></svg>
+                                <span class="project-tag">Masaüstü</span>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-name">MomentumFit</h3>
+                                <p class="project-desc">Masaüstü ortamında çalışan, sporcular için antrenman programı oluşturma, kalori takibi ve performans analizi sunan yazılım.</p>
+                                <div class="project-tech-tags">
+                                    <span>C#</span>
+                                    <span>WPF / WinForms</span>
+                                    <span>SQL Server</span>
+                                    <span>Data Visualizer</span>
+                                </div>
+                                <div class="project-card-actions">
+                                    <button class="btn-card-details">Detaylar</button>
+                                    <a href="https://github.com/IHuseyinACAN/MomentumFit" target="_blank" class="card-link" aria-label="GitHub Kodları">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        <div class="card-glare"></div>
+                    </div>
+                </article>
+
+                    <!-- Tarihin Efsaneleri -->
+                    <article class="project-card" data-category="mobile" data-project-id="tarih-efsaneleri">
+                        <div class="project-card-inner">
+                            <div class="project-image-placeholder mobile-bg">
+                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M17 2h-10c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2zm-5 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4.25-4h-8.5v-11h8.5v11z"/></svg>
+                                <span class="project-tag">Mobil</span>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-name">Tarihin Efsaneleri</h3>
+                                <p class="project-desc">Tarihteki önemli şahsiyetleri, savaşları ve dönüm noktalarını hikayeleştirerek kullanıcılara sunan mobil uygulama.</p>
+                                <div class="project-tech-tags">
+                                    <span>Flutter</span>
+                                    <span>Dart</span>
+                                    <span>SQLite</span>
+                                    <span>Material 3</span>
+                                </div>
+                                <div class="project-card-actions">
+                                    <button class="btn-card-details">Detaylar</button>
+                                    <a href="https://github.com/IHuseyinACAN/Tarihin-Efsaneleri-Mobil-app" target="_blank" class="card-link" aria-label="GitHub Kodları">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        <div class="card-glare"></div>
+                    </div>
+                </article>
+
+                    <!-- TAKIM16 -->
+                    <article class="project-card" data-category="mobile" data-project-id="takim16">
+                        <div class="project-card-inner">
+                            <div class="project-image-placeholder mobile-bg-2">
+                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M17 2h-10c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2zm-5 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4.25-4h-8.5v-11h8.5v11z"/></svg>
+                                <span class="project-tag">Mobil</span>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-name">TAKIM16</h3>
+                                <p class="project-desc">Ekip işbirliğiyle ortaklaşa geliştirilen, modern UI/UX tasarımına ve gelişmiş durum yönetimine sahip mobil uygulama.</p>
+                                <div class="project-tech-tags">
+                                    <span>Flutter</span>
+                                    <span>Firebase</span>
+                                    <span>Git/Collaboration</span>
+                                    <span>State Management</span>
+                                </div>
+                                <div class="project-card-actions">
+                                    <button class="btn-card-details">Detaylar</button>
+                                    <a href="https://github.com/HomamAbosaleh/TAKIM16" target="_blank" class="card-link" aria-label="GitHub Kodları">
+                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        <div class="card-glare"></div>
+                    </div>
+                </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Kaydırmaya Duyarlı Büyük Arka Plan Başlığı (Scroll Reveal Title) -->
+        <div class="scroll-reveal-container" id="orbital-trigger">
+            <span class="scroll-bg-text" id="scroll-orbital-text">MILESTONES</span>
+        </div>
+
+        <!-- Başarılar & Burslar (Yörüngesel Zaman Tüneli - Orbital Section) -->
+        <section id="orbital" class="orbital-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Başarılar & Burslar</h2>
+                    <p class="section-subtitle">Dairesel yörüngede dönen dönüm noktalarımı incelemek için üzerlerine gelin</p>
+                </div>
+
+                <div class="orbital-container">
+                    <!-- Yörünge Çemberleri -->
+                    <div class="orbit-path orbit-1"></div>
+                    <div class="orbit-path orbit-2"></div>
+                    <div class="orbit-path orbit-3"></div>
+                    <div class="orbit-path orbit-4"></div>
+
+                    <!-- Merkez Küre (Dumlupınar Birinciliği) -->
+                    <div class="orbital-center-node" id="center-achievement">
+                        <div class="center-content">
+                            <div class="center-icon">🏆</div>
+                            <h3>Dumlupınar Üniversitesi</h3>
+                            <span class="center-tag">Dönem Birincisi</span>
+                            <span class="center-year">2023 - 2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Uydular (Orbiting Nodes) -->
+                    <!-- Google AI Scholar -->
+                    <div class="orbital-satellite-node active" style="--orbit-index: 1; --orbit-speed: 24s; --orbit-radius: 170px;" data-title="Google Yapay Zeka Akademisi" data-desc="2023-2024 yılları arasında prestijli Google Yapay Zeka Akademisi'ne kabul edilerek ileri düzey AI/ML eğitimleri ve mentorluk desteği aldım." data-badge="Bursiyer (2023-2024)" data-icon="🤖">
+                        <div class="satellite-dot">🤖</div>
+                    </div>
+
+                    <!-- T3 Vakfı -->
+                    <div class="orbital-satellite-node" style="--orbit-index: 2; --orbit-speed: 28s; --orbit-radius: 240px;" data-title="T3 Vakfı (Türkiye Teknoloji Takımı)" data-desc="Milli Teknoloji Hamlesi vizyonu doğrultusunda Türkiye Teknoloji Takımı Vakfı bursiyeri olmaya hak kazanarak projelerimde desteklendim." data-badge="T3 Bursiyeri" data-icon="🚀">
+                        <div class="satellite-dot">🚀</div>
+                    </div>
+
+                    <!-- Teknofest -->
+                    <div class="orbital-satellite-node" style="--orbit-index: 3; --orbit-speed: 32s; --orbit-radius: 310px;" data-title="Teknofest Yarı Finali" data-desc="Yapay zeka ve teknoloji temalı 'E.nimal' projemiz ile Teknofest yarışmalarında yarı finale kadar yükselerek projemizi başarıyla sunduk." data-badge="E.nimal Yarı Finalist" data-icon="🎖️">
+                        <div class="satellite-dot">🎖️</div>
+                    </div>
+
+                    <!-- Sertifikalar -->
+                    <div class="orbital-satellite-node" style="--orbit-index: 4; --orbit-speed: 36s; --orbit-radius: 380px;" data-title="Sertifikalar ve Eğitimler" data-desc="Gerek yazılım (Web, Mobil, Veritabanı) gerekse robotik alanda katıldığım onlarca akademik ve profesyonel eğitimi başarıyla tamamlayıp sertifikalar aldım." data-badge="Çok Sayıda Sertifika" data-icon="📜">
+                        <div class="satellite-dot">📜</div>
+                    </div>
+
+                    <!-- Orbital Detay Paneli (Cam Kart şeklinde merkez altında belirecek) -->
+                    <div class="orbital-detail-card" id="orbital-detail-card">
+                        <span class="detail-badge" id="detail-badge">Bursiyer (2023-2024)</span>
+                        <h4 class="detail-title" id="detail-title">Google Yapay Zeka Akademisi</h4>
+                        <p class="detail-desc" id="detail-desc">2023-2024 yılları arasında prestijli Google Yapay Zeka Akademisi'ne kabul edilerek ileri düzey AI/ML eğitimleri ve mentorluk desteği aldım.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Yetenekler Bölümü -->
+        <section id="skills" class="skills-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Yetenek Setim</h2>
+                    <p class="section-subtitle">Yazılım ve robotik mühendisliği alanında uzmanlaştığım konular</p>
+                </div>
+
+                <div class="skills-wrapper">
+                    <!-- Robotik & Donanım Kartı -->
+                    <div class="skill-category-card">
+                        <div class="skill-card-header">
+                            <span class="category-icon">⚙️</span>
+                            <h3>Robotik & Gömülü Donanım</h3>
+                        </div>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-name-percentage">
+                                    <span>Arduino / Raspberry Pi</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="--percent: 95%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name-percentage">
+                                    <span>C / C++ (Gömülü Yazılım)</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="--percent: 90%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name-percentage">
+                                    <span>Robot İşletim Sistemi (ROS)</span>
+                                    <span>70%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="--percent: 70%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name-percentage">
+                                    <span>Motor Sürücüler & Sensörler</span>
+                                    <span>92%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="--percent: 92%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name-percentage">
+                                    <span>CAD Modelleme / Donanım Tasarımı</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="--percent: 80%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Yazılım Geliştirme Kartı -->
+                    <div class="skill-category-card">
+                        <div class="skill-card-header">
+                            <span class="category-icon">💻</span>
+                            <h3>Yazılım Geliştirme</h3>
+                        </div>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-name-percentage">
+                                    <span>Web Geliştirme (HTML, CSS, JS, PHP)</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="--percent: 88%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name-percentage">
+                                    <span>Mobil Geliştirme (Flutter / Dart)</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="--percent: 85%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name-percentage">
+                                    <span>Masaüstü Geliştirme (C# / WPF / WinForms)</span>
+                                    <span>82%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="--percent: 82%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name-percentage">
+                                    <span>Veritabanı Yönetimi (SQL / MySQL)</span>
+                                    <span>86%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="--percent: 86%;"></div></div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name-percentage">
+                                    <span>Yapay Zeka & Python (Giriş / Orta)</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="skill-bar"><div class="skill-progress" style="--percent: 75%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- İletişim Bölümü -->
+        <section id="contact" class="contact-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">İletişim</h2>
+                    <p class="section-subtitle">Sorularınız, iş ortaklıkları veya fikir alışverişi için bana ulaşabilirsiniz</p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <!-- Hızlı İletişim Bilgileri -->
+                    <div class="contact-info-panel">
+                        <h3>Bağlantıda Kalalım</h3>
+                        <p class="contact-info-text">Robotik, gömülü sistemler veya web/mobil/masaüstü yazılımları hakkında herhangi bir fikriniz varsa yazmaktan çekinmeyin.</p>
+                        
+                        <div class="info-list">
+                            <!-- E-posta Kopyalama Butonlu Alan -->
+                            <div class="info-item email-box">
+                                <div class="info-icon">✉️</div>
+                                <div class="info-details">
+                                    <span class="info-label">E-posta</span>
+                                    <button class="email-copy-btn" id="email-copy-btn" title="Kopyalamak için tıklayın">
+                                        <span id="email-text">0hsynacan@gmail.com</span>
+                                        <svg class="copy-svg-icon" viewBox="0 0 24 24"><path d="M16.5 2h-12c-1.1 0-2 .9-2 2v14h2v-14h12v-2zm3 4h-12c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-14c0-1.1-.9-2-2-2zm0 16h-12v-14h12v14z"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">📍</div>
+                                <div class="info-details">
+                                    <span class="info-label">Lokasyon</span>
+                                    <span class="info-val">Bursa / Türkiye</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sosyal Medya İkonları -->
+                        <div class="contact-social-icons">
+                            <a href="https://github.com/IHuseyinACAN" target="_blank" class="social-btn" aria-label="GitHub">GitHub</a>
+                            <a href="https://www.linkedin.com/in/h%C3%BCseyin-a%C3%A7an/" target="_blank" class="social-btn" aria-label="LinkedIn">LinkedIn</a>
+                            <a href="https://www.instagram.com/hsynacn/" target="_blank" class="social-btn" aria-label="Instagram">Instagram</a>
+                        </div>
+                    </div>
+
+                    <!-- İletişim Formu -->
+                    <form class="contact-form" id="contact-form" onsubmit="event.preventDefault(); alert('Bu form demo amaçlıdır. Doğrudan mail adresi üzerinden iletişime geçebilirsiniz.');">
+                        <div class="form-group">
+                            <label for="form-name">Adınız</label>
+                            <input type="text" id="form-name" placeholder="Ad Soyad" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-email">E-posta Adresiniz</label>
+                            <input type="email" id="form-email" placeholder="ornek@mail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-message">Mesajınız</label>
+                            <textarea id="form-message" rows="5" placeholder="Mesajınızı yazın..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">Gönder</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <p>&copy; 2026 İ. Hüseyin Acan. Tüm Hakları Saklıdır.</p>
+        <p class="footer-design">Zarif Glassmorphism Portfolyosu</p>
+    </footer>
+
+    <!-- Detay Modalları -->
+    <div class="modal-overlay" id="project-modal">
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            <div class="modal-content" id="modal-dynamic-content">
+                <!-- İçerik JavaScript tarafından dinamik doldurulacak -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Dosyası -->
+    <script src="app.js"></script>
+</body>
+</html>

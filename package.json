@@ -1,0 +1,16 @@
+{
+  "name": "huseyin-acan-portfolio",
+  "version": "1.0.0",
+  "description": "İ. Hüseyin Acan - İnteraktif Yazılım & Robotik Portfolyosu",
+  "scripts": {
+    "dev": "npx http-server -p 3000"
+  },
+  "keywords": [
+    "portfolio",
+    "glassmorphism",
+    "robotics",
+    "software"
+  ],
+  "author": "İ. Hüseyin Acan",
+  "license": "ISC"
+}
