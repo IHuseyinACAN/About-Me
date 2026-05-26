@@ -357,14 +357,6 @@ const projectDetails = {
             <line x1="30" y1="62" x2="70" y2="62" class="t16-line" stroke-dasharray="3 3" opacity="0.3"/>
         </svg>`
     }
-};ng> arayüzü ile uyumlu çalışan <strong>Firebase Realtime Database & Firestore</strong> arka planı.</li>
-                <li>Google ve e-posta ile giriş imkanı sunan Firebase Authentication altyapısı.</li>
-                <li>Uygulama arka planda olsa dahi anlık bildirim gönderen Firebase Cloud Messaging (FCM) entegrasyonu.</li>
-                <li>Gelişmiş rol yönetimi (Yönetici, Editör, Üye) ve interaktif görev kontrol paneli (Kanban Board tarzında).</li>
-            </ul>
-        `,
-        github: "https://github.com/HomamAbosaleh/TAKIM16"
-    }
 };
 
 /* ==========================================================================
