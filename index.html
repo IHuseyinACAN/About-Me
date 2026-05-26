@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Stil Dosyası -->
-    <link rel="stylesheet" href="style.css?v=2.0">
+    <link rel="stylesheet" href="style.css?v=2.1">
 </head>
 <body>
 
@@ -450,7 +450,18 @@
                     <p class="section-subtitle">Yazılım ve robotik mühendisliği alanında uzmanlaştığım konular</p>
                 </div>
 
-                <div class="skills-wrapper">
+                <div class="skills-view-selector">
+                    <button class="skills-view-btn active" id="btn-skills-grid">Sütun Görünümü</button>
+                    <button class="skills-view-btn" id="btn-skills-constellation">Ağ Görünümü</button>
+                </div>
+
+                <div class="skills-constellation-container" id="skills-constellation-container" style="display: none;">
+                    <canvas id="skills-canvas"></canvas>
+                    <div class="constellation-tooltip" id="constellation-tooltip"></div>
+                    <p class="constellation-hint">Yetenek düğümlerinin üzerine gelerek detayları ve bağlantıları inceleyebilirsiniz.</p>
+                </div>
+
+                <div class="skills-wrapper" id="skills-wrapper">
                     <!-- Robotik & Donanım Kartı -->
                     <div class="skill-category-card">
                         <div class="skill-card-header">
@@ -625,6 +636,6 @@
     </div>
 
     <!-- JavaScript Dosyası -->
-    <script src="app.js?v=1.8"></script>
+    <script src="app.js?v=1.9"></script>
 </body>
 </html>

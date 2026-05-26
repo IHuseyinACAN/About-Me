@@ -374,6 +374,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initScrollRevealText();
     initSkillsAnimation();
     initFolderClickEvents();
+    initSkillsConstellation();
 });
 
 /* ==========================================================================
@@ -790,6 +791,8 @@ function initFolderClickEvents() {
         panel.classList.remove("open");
         if (hoverPreviewContainer) {
             hoverPreviewContainer.classList.remove("active-border");
+            const existing = hoverPreviewContainer.querySelector(".robotics-controls");
+            if (existing) existing.remove();
         }
     }
 
@@ -813,6 +816,12 @@ function initFolderClickEvents() {
         if (previewTitle) previewTitle.style.opacity = '0';
         if (previewDesc) previewDesc.style.opacity = '0';
 
+        // Remove any existing robotics controls immediately on project change
+        if (hoverPreviewContainer) {
+            const existing = hoverPreviewContainer.querySelector(".robotics-controls");
+            if (existing) existing.remove();
+        }
+
         setTimeout(() => {
             // Update contents
             if (previewVisualBox) {
@@ -829,6 +838,9 @@ function initFolderClickEvents() {
             if (previewVisualBox) previewVisualBox.style.opacity = '1';
             if (previewTitle) previewTitle.style.opacity = '1';
             if (previewDesc) previewDesc.style.opacity = '1';
+
+            // Inject robotics controls if applicable
+            injectRoboticsControls(projectId);
         }, 150);
     }
 
@@ -853,7 +865,47 @@ function initFolderClickEvents() {
                 <div class="item-tags">
                     ${techsHtml}
                 </div>
+                <div class="github-stats-bar" id="gh-stats-${key}"></div>
             `;
+
+            // Fetch and update github stats asynchronously
+            if (proj.github) {
+                getGitHubStats(key, proj.github).then(stats => {
+                    const statsBar = li.querySelector(`#gh-stats-${key}`);
+                    if (statsBar) {
+                        const langColors = {
+                            "javascript": "#f1e05a",
+                            "html": "#e34c26",
+                            "css": "#563d7c",
+                            "php": "#4f5d95",
+                            "c++": "#f34b7d",
+                            "c#": "#178600",
+                            "arduino": "#bd79d1",
+                            "dart": "#00b4ab",
+                            "flutter": "#02569b",
+                            "python": "#3572A5",
+                            "sql": "#e38c00"
+                        };
+                        const color = langColors[stats.language.toLowerCase()] || "var(--primary)";
+                        statsBar.innerHTML = `
+                            <span>
+                                <span class="gh-lang-dot" style="background-color: ${color}"></span>
+                                ${stats.language}
+                            </span>
+                            <span>
+                                <svg viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M8 .25a.75.75 0 01.773.453l1.81 3.67 4.05.588a.75.75 0 01.416 1.279l-2.93 2.856.692 4.035a.75.75 0 01-1.088.79L8 11.587l-3.623 1.907a.75.75 0 01-1.088-.79l.692-4.035-2.93-2.856a.75.75 0 01.417-1.279l4.05-.588 1.81-3.67A.75.75 0 018 .25z"></path></svg>
+                                ${stats.stars}
+                            </span>
+                            <span>
+                                <svg viewBox="0 0 16 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M5 3.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 2.122a2.25 2.25 0 10-1.5 0v5.256a2.251 2.251 0 101.5 0V5.372zm8 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM11.5 5.372a2.25 2.25 0 101.5 0v5.256a2.251 2.251 0 10-1.5 0V5.372zm-1.5 4.878a.75.75 0 100-1.5.75.75 0 000 1.5z"></path></svg>
+                                ${stats.forks}
+                            </span>
+                        `;
+                    }
+                }).catch(err => {
+                    console.error("Error setting stats", err);
+                });
+            }
 
             // Hover event
             li.addEventListener("mouseenter", () => {
@@ -971,5 +1023,556 @@ function initThemeToggle() {
         
         document.documentElement.setAttribute("data-theme", newTheme);
         localStorage.setItem("portfolio-theme", newTheme);
+    });
+}
+
+/* ==========================================================================
+   GITHUB API LIVE STATS & CACHING SYSTEM
+   ========================================================================== */
+function getRepoPath(url) {
+    if (!url || !url.startsWith("https://github.com/")) return null;
+    const cleanUrl = url.split("?")[0].split("#")[0];
+    const parts = cleanUrl.replace("https://github.com/", "").split("/");
+    if (parts.length >= 2 && parts[0] && parts[1]) {
+        let repo = parts[1];
+        if (repo.endsWith(".git")) repo = repo.slice(0, -4);
+        return `${parts[0]}/${repo}`;
+    }
+    return null;
+}
+
+function getFallbackStats(projectId) {
+    const fallbacks = {
+        "robot-kol": { stars: 12, forks: 3, language: "C++" },
+        "taret": { stars: 8, forks: 2, language: "C++" },
+        "odemy": { stars: 34, forks: 15, language: "PHP" },
+        "iirce": { stars: 18, forks: 5, language: "HTML" },
+        "ipo": { stars: 22, forks: 8, language: "JavaScript" },
+        "body-metrics": { stars: 19, forks: 6, language: "JavaScript" },
+        "portfolio": { stars: 45, forks: 14, language: "JavaScript" },
+        "momentumfit": { stars: 26, forks: 9, language: "C#" },
+        "tarih-efsaneleri": { stars: 30, forks: 11, language: "Dart" },
+        "takim16": { stars: 25, forks: 7, language: "Dart" }
+    };
+    return fallbacks[projectId] || { stars: 10, forks: 3, language: "JavaScript" };
+}
+
+async function getGitHubStats(projectId, githubUrl) {
+    const repoPath = getRepoPath(githubUrl);
+    const fallback = getFallbackStats(projectId);
+    if (!repoPath) return fallback;
+
+    const cacheKey = `gh_stats_${repoPath}`;
+    const cached = localStorage.getItem(cacheKey);
+    if (cached) {
+        try {
+            const data = JSON.parse(cached);
+            const now = Date.now();
+            if (now - data.timestamp < 3600000) { // 1 hour
+                return data.stats;
+            }
+        } catch (e) {
+            console.error("Error parsing cached GitHub stats", e);
+        }
+    }
+
+    try {
+        const response = await fetch(`https://api.github.com/repos/${repoPath}`, {
+            headers: {
+                "Accept": "application/vnd.github.v3+json"
+            }
+        });
+        if (!response.ok) {
+            throw new Error(`GitHub API error: ${response.status}`);
+        }
+        const data = await response.json();
+        const stats = {
+            stars: data.stargazers_count,
+            forks: data.forks_count,
+            language: data.language || fallback.language
+        };
+        localStorage.setItem(cacheKey, JSON.stringify({
+            timestamp: Date.now(),
+            stats: stats
+        }));
+        return stats;
+    } catch (err) {
+        console.warn(`Could not fetch live GitHub stats for ${repoPath}, using fallback.`, err);
+        return fallback;
+    }
+}
+
+/* ==========================================================================
+   INTERACTIVE ROBOTICS JOINT MATHEMATICS & ARC PROJECTILES
+   ========================================================================== */
+function getRoboticArmSvg(theta1, theta2) {
+    const x0 = 50, y0 = 75;
+    const L1 = 30, L2 = 25;
+    
+    const rad1 = (theta1 * Math.PI) / 180;
+    const x1 = x0 + L1 * Math.cos(rad1);
+    const y1 = y0 - L1 * Math.sin(rad1);
+    
+    const rad2 = (theta2 * Math.PI) / 180;
+    const x2 = x1 + L2 * Math.cos(rad2);
+    const y2 = y1 - L2 * Math.sin(rad2);
+    
+    const radG1 = ((theta2 + 20) * Math.PI) / 180;
+    const xf1 = x2 + 10 * Math.cos(radG1);
+    const yf1 = y2 - 10 * Math.sin(radG1);
+    
+    const radG2 = ((theta2 - 20) * Math.PI) / 180;
+    const xf2 = x2 + 10 * Math.cos(radG2);
+    const yf2 = y2 - 10 * Math.sin(radG2);
+
+    return `
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <style>
+            .r-arm-line { stroke: #a855f7; stroke-width: 1.5; stroke-linecap: round; opacity: 0.8; }
+            .r-arm-joint { fill: #06b6d4; filter: drop-shadow(0 0 4px #06b6d4); }
+        </style>
+        <circle cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="2 3"/>
+        <path d="M50 85 H30 M50 85 H70 M50 85 V75" class="r-arm-line"/>
+        <circle cx="${x0}" cy="${y0}" r="4.5" class="r-arm-joint"/>
+        <line x1="${x0}" y1="${y0}" x2="${x1}" y2="${y1}" class="r-arm-line"/>
+        <circle cx="${x1}" cy="${y1}" r="3.8" class="r-arm-joint"/>
+        <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="r-arm-line"/>
+        <circle cx="${x2}" cy="${y2}" r="3.0" class="r-arm-joint"/>
+        <line x1="${x2}" y1="${y2}" x2="${xf1}" y2="${yf1}" class="r-arm-line"/>
+        <line x1="${x2}" y1="${y2}" x2="${xf2}" y2="${yf2}" class="r-arm-line"/>
+    </svg>`;
+}
+
+function getDartTurretSvg(aimAngle, dartPos = null, targetWobbleClass = '') {
+    const baseX = 20, baseY = 75;
+    const barrelLength = 16;
+    
+    const rad = (aimAngle * Math.PI) / 180;
+    const tipX = baseX + barrelLength * Math.cos(rad);
+    const tipY = baseY - barrelLength * Math.sin(rad);
+    
+    const targetX = 80, targetY = 55;
+    
+    let dartSvg = '';
+    if (dartPos) {
+        const angleDeg = (dartPos.angle * 180) / Math.PI;
+        dartSvg = `
+        <g transform="translate(${dartPos.x}, ${dartPos.y}) rotate(${angleDeg})">
+            <line x1="-6" y1="0" x2="4" y2="0" stroke="#06b6d4" stroke-width="1.5" stroke-linecap="round"/>
+            <polygon points="4,-2 8,0 4,2" fill="#06b6d4"/>
+            <polygon points="-6,-3 -3,0 -6,3 -8,0" fill="#a855f7" opacity="0.8"/>
+        </g>
+        `;
+    }
+    
+    return `
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <style>
+            .tar-base { stroke: #6366f1; stroke-width: 2; fill: rgba(99, 102, 241, 0.1); }
+            .tar-barrel { stroke: #06b6d4; stroke-width: 3; stroke-linecap: round; }
+            .tar-target-outer { stroke: #a855f7; stroke-width: 1.5; fill: rgba(168, 85, 247, 0.05); }
+            .tar-target-inner { stroke: #a855f7; stroke-width: 1.5; fill: #ef4444; }
+            .tar-target-center { fill: #ef4444; }
+            .target-wobble-group { transform-origin: ${targetX}px ${targetY}px; }
+            .tar-grid { stroke: rgba(255,255,255,0.03); stroke-width: 0.5; }
+        </style>
+        
+        <circle cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.02)" stroke-width="1" stroke-dasharray="2 3"/>
+        <line x1="10" y1="75" x2="90" y2="75" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+        
+        <path d="M12 75 C12 65 28 65 28 75 Z" class="tar-base"/>
+        <circle cx="${baseX}" cy="${baseY}" r="4" fill="#6366f1"/>
+        
+        <line x1="${baseX}" y1="${baseY}" x2="${tipX}" y2="${tipY}" class="tar-barrel"/>
+        
+        <g class="target-wobble-group ${targetWobbleClass}">
+            <circle cx="${targetX}" cy="${targetY}" r="12" class="tar-target-outer"/>
+            <circle cx="${targetX}" cy="${targetY}" r="7" stroke="#ef4444" stroke-width="1" fill="none"/>
+            <circle cx="${targetX}" cy="${targetY}" r="3" class="tar-target-center"/>
+            <path d="M${targetX} ${targetY + 12} L${targetX - 4} 75 M${targetX} ${targetY + 12} L${targetX + 4} 75" stroke="#a855f7" stroke-width="1"/>
+        </g>
+        
+        ${dartSvg}
+    </svg>
+    `;
+}
+
+function injectRoboticsControls(projectId) {
+    const hoverPreviewContainer = document.getElementById("project-hover-preview");
+    if (!hoverPreviewContainer) return;
+    
+    const existing = hoverPreviewContainer.querySelector(".robotics-controls");
+    if (existing) existing.remove();
+    
+    if (projectId !== 'robot-kol' && projectId !== 'taret') return;
+    
+    const controlsDiv = document.createElement("div");
+    controlsDiv.className = "robotics-controls";
+    
+    if (projectId === 'robot-kol') {
+        controlsDiv.innerHTML = `
+            <div class="control-row">
+                <label>Omuz Eklemi (Shoulder): <span id="val-shoulder">120°</span></label>
+                <input type="range" class="control-slider" id="slider-shoulder" min="15" max="165" value="120">
+            </div>
+            <div class="control-row">
+                <label>Dirsek Eklemi (Elbow): <span id="val-elbow">30°</span></label>
+                <input type="range" class="control-slider" id="slider-elbow" min="-90" max="90" value="30">
+            </div>
+        `;
+        hoverPreviewContainer.appendChild(controlsDiv);
+        
+        const sliderS = controlsDiv.querySelector("#slider-shoulder");
+        const sliderE = controlsDiv.querySelector("#slider-elbow");
+        const valS = controlsDiv.querySelector("#val-shoulder");
+        const valE = controlsDiv.querySelector("#val-elbow");
+        const previewVisualBox = document.getElementById("preview-visual-box");
+        
+        function updateArm() {
+            const s = parseInt(sliderS.value);
+            const e = parseInt(sliderE.value);
+            valS.textContent = `${s}°`;
+            valE.textContent = `${e}°`;
+            if (previewVisualBox) {
+                previewVisualBox.innerHTML = getRoboticArmSvg(s, e);
+            }
+        }
+        
+        sliderS.addEventListener("input", updateArm);
+        sliderE.addEventListener("input", updateArm);
+        
+        updateArm();
+    } else if (projectId === 'taret') {
+        controlsDiv.innerHTML = `
+            <div class="control-row">
+                <label>Namlu Açısı (Aim Angle): <span id="val-aim">15°</span></label>
+                <input type="range" class="control-slider" id="slider-aim" min="-30" max="60" value="15">
+            </div>
+            <button class="btn-fire" id="btn-fire-dart">🎯 Ateş Et!</button>
+        `;
+        hoverPreviewContainer.appendChild(controlsDiv);
+        
+        const sliderAim = controlsDiv.querySelector("#slider-aim");
+        const valAim = controlsDiv.querySelector("#val-aim");
+        const btnFire = controlsDiv.querySelector("#btn-fire-dart");
+        const previewVisualBox = document.getElementById("preview-visual-box");
+        
+        let isAnimating = false;
+        
+        function updateTurret() {
+            if (isAnimating) return;
+            const angle = parseInt(sliderAim.value);
+            valAim.textContent = `${angle}°`;
+            if (previewVisualBox) {
+                previewVisualBox.innerHTML = getDartTurretSvg(angle);
+            }
+        }
+        
+        sliderAim.addEventListener("input", updateTurret);
+        
+        btnFire.addEventListener("click", () => {
+            if (isAnimating) return;
+            isAnimating = true;
+            btnFire.disabled = true;
+            
+            const aimAngle = parseInt(sliderAim.value);
+            const baseX = 20, baseY = 75;
+            const barrelLength = 16;
+            const rad = (aimAngle * Math.PI) / 180;
+            const startX = baseX + barrelLength * Math.cos(rad);
+            const startY = baseY - barrelLength * Math.sin(rad);
+            
+            const targetX = 80, targetY = 55;
+            const H = 20;
+            const duration = 800;
+            const startTime = performance.now();
+            
+            function animate(now) {
+                const elapsed = now - startTime;
+                const t = Math.min(elapsed / duration, 1);
+                
+                const x = startX + (targetX - startX) * t;
+                const y = startY + (targetY - startY) * t - H * Math.sin(Math.PI * t);
+                
+                const dx = targetX - startX;
+                const dy = (targetY - startY) - H * Math.PI * Math.cos(Math.PI * t);
+                const angle = Math.atan2(dy, dx);
+                
+                const dartPos = { x, y, angle };
+                
+                if (t < 1) {
+                    if (previewVisualBox) {
+                        previewVisualBox.innerHTML = getDartTurretSvg(aimAngle, dartPos);
+                    }
+                    requestAnimationFrame(animate);
+                } else {
+                    if (previewVisualBox) {
+                        previewVisualBox.innerHTML = getDartTurretSvg(aimAngle, null, 'wobble-target');
+                    }
+                    
+                    setTimeout(() => {
+                        if (previewVisualBox && hoverPreviewContainer.querySelector("#slider-aim")?.value == aimAngle) {
+                            previewVisualBox.innerHTML = getDartTurretSvg(aimAngle, null, '');
+                        }
+                        isAnimating = false;
+                        btnFire.disabled = false;
+                    }, 600);
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        });
+        
+        updateTurret();
+    }
+}
+
+/* ==========================================================================
+   SKILLS NETWORK CONSTELLATION VIEW SYSTEM (HTML5 CANVAS)
+   ========================================================================== */
+function initSkillsConstellation() {
+    const btnGrid = document.getElementById("btn-skills-grid");
+    const btnConst = document.getElementById("btn-skills-constellation");
+    const container = document.getElementById("skills-constellation-container");
+    const wrapper = document.getElementById("skills-wrapper");
+    const canvas = document.getElementById("skills-canvas");
+    const tooltip = document.getElementById("constellation-tooltip");
+    
+    if (!canvas || !btnGrid || !btnConst || !container || !wrapper) return;
+    
+    const ctx = canvas.getContext("2d");
+    let animationFrameId = null;
+    let isConstellationActive = false;
+    
+    const skillsData = [
+        { name: "Arduino / Raspberry Pi", value: 95, category: "robotics" },
+        { name: "C / C++ (Gömülü Yazılım)", value: 90, category: "robotics" },
+        { name: "Robot İşletim Sistemi (ROS)", value: 70, category: "robotics" },
+        { name: "Motor Sürücüler & Sensörler", value: 92, category: "robotics" },
+        { name: "CAD Modelleme / Donanım Tasarımı", value: 80, category: "robotics" },
+        { name: "Web Geliştirme (HTML, CSS, JS, PHP)", value: 88, category: "software" },
+        { name: "Mobil Geliştirme (Flutter / Dart)", value: 85, category: "software" },
+        { name: "Masaüstü Geliştirme (C# / WPF / WinForms)", value: 82, category: "software" },
+        { name: "Veritabanı Yönetimi (SQL / MySQL)", value: 86, category: "software" },
+        { name: "Yapay Zeka & Python (Giriş / Orta)", value: 75, category: "software" }
+    ];
+    
+    let nodes = [];
+    const mouse = { x: null, y: null, hoveredNode: null };
+    
+    function resizeCanvas() {
+        const dpr = window.devicePixelRatio || 1;
+        const rect = container.getBoundingClientRect();
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.scale(dpr, dpr);
+        canvas.style.width = `${rect.width}px`;
+        canvas.style.height = `${rect.height}px`;
+    }
+    
+    function initNodes() {
+        const w = container.offsetWidth;
+        const h = container.offsetHeight;
+        nodes = skillsData.map((skill, index) => {
+            const angle = (index / skillsData.length) * Math.PI * 2;
+            const radius = 22 + (skill.value - 70) * 0.3;
+            const startR = Math.min(w, h) * 0.3;
+            return {
+                name: skill.name,
+                value: skill.value,
+                category: skill.category,
+                radius: radius,
+                x: w / 2 + Math.cos(angle) * startR + (Math.random() - 0.5) * 40,
+                y: h / 2 + Math.sin(angle) * startR + (Math.random() - 0.5) * 40,
+                vx: (Math.random() - 0.5) * 0.2,
+                vy: (Math.random() - 0.5) * 0.2,
+                accentColor: skill.category === "robotics" ? "#a855f7" : "#6366f1"
+            };
+        });
+    }
+    
+    function updateAndDraw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        const w = container.offsetWidth;
+        const h = container.offsetHeight;
+        
+        const isLightTheme = document.documentElement.getAttribute("data-theme") === "light";
+        const nodeBgColor = isLightTheme ? "rgba(15, 23, 42, 0.04)" : "rgba(255, 255, 255, 0.04)";
+        const nodeTextColor = isLightTheme ? "#0f172a" : "#ffffff";
+        const lineStrokeColor = isLightTheme ? "rgba(15, 23, 42, 0.06)" : "rgba(255, 255, 255, 0.06)";
+        const activeLineStrokeColor = isLightTheme ? "rgba(99, 102, 241, 0.35)" : "rgba(168, 85, 247, 0.35)";
+        
+        nodes.forEach(node => {
+            node.x += node.vx;
+            node.y += node.vy;
+            
+            if (node.x - node.radius < 0) {
+                node.x = node.radius;
+                node.vx *= -1;
+            } else if (node.x + node.radius > w) {
+                node.x = w - node.radius;
+                node.vx *= -1;
+            }
+            
+            if (node.y - node.radius < 0) {
+                node.y = node.radius;
+                node.vy *= -1;
+            } else if (node.y + node.radius > h) {
+                node.y = h - node.radius;
+                node.vy *= -1;
+            }
+        });
+        
+        ctx.lineWidth = 1;
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const n1 = nodes[i];
+                const n2 = nodes[j];
+                const dx = n2.x - n1.x;
+                const dy = n2.y - n1.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                
+                if (dist < 160) {
+                    const isHoveredConnection = (mouse.hoveredNode === n1 || mouse.hoveredNode === n2);
+                    ctx.beginPath();
+                    ctx.moveTo(n1.x, n1.y);
+                    ctx.lineTo(n2.x, n2.y);
+                    
+                    if (isHoveredConnection) {
+                        ctx.strokeStyle = activeLineStrokeColor;
+                        ctx.lineWidth = 1.5;
+                    } else {
+                        ctx.strokeStyle = lineStrokeColor;
+                        ctx.lineWidth = 0.8;
+                    }
+                    ctx.stroke();
+                }
+            }
+        }
+        
+        nodes.forEach(node => {
+            const isHovered = mouse.hoveredNode === node;
+            
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+            
+            if (isHovered) {
+                ctx.fillStyle = nodeBgColor;
+                ctx.strokeStyle = node.accentColor;
+                ctx.lineWidth = 2.5;
+                ctx.shadowColor = node.accentColor;
+                ctx.shadowBlur = 8;
+            } else {
+                ctx.fillStyle = nodeBgColor;
+                ctx.strokeStyle = isLightTheme ? "rgba(15, 23, 42, 0.12)" : "rgba(255, 255, 255, 0.12)";
+                ctx.lineWidth = 1.2;
+                ctx.shadowBlur = 0;
+            }
+            
+            ctx.fill();
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+            
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, 3, 0, Math.PI * 2);
+            ctx.fillStyle = node.accentColor;
+            ctx.fill();
+            
+            ctx.font = `500 9.5px "Inter", sans-serif`;
+            ctx.fillStyle = nodeTextColor;
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            
+            const words = node.name.split(" ");
+            if (words.length > 2) {
+                const mid = Math.ceil(words.length / 2);
+                const line1 = words.slice(0, mid).join(" ");
+                const line2 = words.slice(mid).join(" ");
+                ctx.fillText(line1, node.x, node.y - node.radius - 12);
+                ctx.fillText(line2, node.x, node.y - node.radius - 2);
+            } else {
+                ctx.fillText(node.name, node.x, node.y - node.radius - 6);
+            }
+        });
+        
+        if (isConstellationActive) {
+            animationFrameId = requestAnimationFrame(updateAndDraw);
+        }
+    }
+    
+    function checkHover(e) {
+        const rect = canvas.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        mouse.x = mouseX;
+        mouse.y = mouseY;
+        
+        let found = null;
+        for (let node of nodes) {
+            const dx = mouseX - node.x;
+            const dy = mouseY - node.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < node.radius + 10) {
+                found = node;
+                break;
+            }
+        }
+        
+        if (found !== mouse.hoveredNode) {
+            mouse.hoveredNode = found;
+            if (found) {
+                tooltip.innerHTML = `<strong>${found.name}</strong><br>Uzmanlık: %${found.value}`;
+                tooltip.style.left = `${mouseX}px`;
+                tooltip.style.top = `${mouseY - 10}px`;
+                tooltip.style.opacity = "1";
+                tooltip.style.transform = "translate(-50%, -100%) scale(1)";
+            } else {
+                tooltip.style.opacity = "0";
+                tooltip.style.transform = "translate(-50%, -100%) scale(0.9)";
+            }
+        } else if (found) {
+            tooltip.style.left = `${mouseX}px`;
+            tooltip.style.top = `${mouseY - 10}px`;
+        }
+    }
+    
+    canvas.addEventListener("mousemove", checkHover);
+    canvas.addEventListener("mouseleave", () => {
+        mouse.hoveredNode = null;
+        tooltip.style.opacity = "0";
+        tooltip.style.transform = "translate(-50%, -100%) scale(0.9)";
+    });
+    
+    btnConst.addEventListener("click", () => {
+        btnGrid.classList.remove("active");
+        btnConst.classList.add("active");
+        
+        wrapper.style.display = "none";
+        container.style.display = "flex";
+        
+        isConstellationActive = true;
+        resizeCanvas();
+        initNodes();
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+        updateAndDraw();
+    });
+    
+    btnGrid.addEventListener("click", () => {
+        btnConst.classList.remove("active");
+        btnGrid.classList.add("active");
+        
+        container.style.display = "none";
+        wrapper.style.display = "grid";
+        
+        isConstellationActive = false;
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+        tooltip.style.opacity = "0";
+    });
+    
+    window.addEventListener("resize", () => {
+        if (isConstellationActive) {
+            resizeCanvas();
+        }
     });
 }
