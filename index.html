@@ -8,12 +8,17 @@
     <meta name="description" content="İ. Hüseyin Acan - Yazılım Geliştirme (Web, Mobil, Masaüstü) ve Robotik Alanındaki Projeler, Başarılar ve Burslar Portfolyosu.">
     <meta name="keywords" content="Hüseyin Acan, Portfolyo, Robotik, Yazılım, Web Geliştirme, Mobil Uygulama, Masaüstü Uygulama, Dumlupınar Üniversitesi, Google AI Bursiyeri, T3 Vakfı, Teknofest">
     <meta name="author" content="İ. Hüseyin Acan">
+    <script>
+        // Set initial theme as fast as possible to avoid flash
+        const savedTheme = localStorage.getItem("portfolio-theme") || "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme);
+    </script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Stil Dosyası -->
-    <link rel="stylesheet" href="style.css?v=1.9">
+    <link rel="stylesheet" href="style.css?v=2.0">
 </head>
 <body>
 
@@ -37,6 +42,27 @@
                 <a href="#contact" class="nav-link">İletişim</a>
             </div>
             <div class="nav-actions">
+                <!-- Tema Değiştirici Buton -->
+                <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Temayı Değiştir">
+                    <span class="toggle-sun">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </span>
+                    <span class="toggle-moon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                </button>
                 <button class="nav-btn-contact" onclick="window.location.href='#contact'">Bana Ulaşın</button>
                 <!-- Mobil Menü Butonu -->
                 <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menüyü Aç/Kapat">
@@ -599,6 +625,6 @@
     </div>
 
     <!-- JavaScript Dosyası -->
-    <script src="app.js?v=1.7"></script>
+    <script src="app.js?v=1.8"></script>
 </body>
 </html>

@@ -363,6 +363,7 @@ const projectDetails = {
    APP INITIALIZATION & EVENTS
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
+    initThemeToggle();
     initNavbarScroll();
     initMobileMenu();
     initHeroTypewriter();
@@ -951,4 +952,24 @@ function initFolderClickEvents() {
             closeDetailsPanel();
         });
     }
+}
+
+/* ==========================================================================
+   LIGHT / DARK THEME TOGGLE SYSTEM
+   ========================================================================== */
+function initThemeToggle() {
+    const themeBtn = document.getElementById("theme-toggle-btn");
+    if (!themeBtn) return;
+    
+    // Check saved theme (default is dark)
+    const savedTheme = localStorage.getItem("portfolio-theme") || "dark";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    
+    themeBtn.addEventListener("click", () => {
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("portfolio-theme", newTheme);
+    });
 }
