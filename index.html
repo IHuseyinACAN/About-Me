@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Stil Dosyası -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.8">
 </head>
 <body>
 
@@ -94,287 +94,262 @@
                     <p class="section-subtitle">Yazılım ve robotik kesişiminde geliştirdiğim bazı projeler</p>
                 </div>
 
-                <!-- Filtreleme Butonları -->
-                <div class="filter-wrapper">
-                    <div class="filter-buttons">
-                        <button class="filter-btn active" data-filter="all">Hepsi</button>
-                        <button class="filter-btn" data-filter="robotics">Robotik</button>
-                        <button class="filter-btn" data-filter="web">Web Sitesi</button>
-                        <button class="filter-btn" data-filter="mobile">Mobil</button>
-                        <button class="filter-btn" data-filter="desktop">Masaüstü</button>
-                    </div>
-                </div>
-
-                <!-- Proje Grid Yapısı -->
+                <!-- Proje Grid Yapısı (Klasörler) -->
                 <div class="projects-grid" id="projects-grid">
                     
-                    <!-- 6 Eksenli Robot Kol -->
-                    <article class="project-card" data-category="robotics" data-project-id="robot-kol">
-                        <div class="project-card-inner">
-                            <div class="project-image-placeholder robotics-bg">
-                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M12 2c5.522 0 10 4.477 10 10s-4.478 10-10 10-10-4.477-10-10 4.478-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 8c0-.552.448-1 1-1s1 .448 1 1-.448 1-1 1-1-.448-1-1zm6 0c0-.552.448-1 1-1s1 .448 1 1-.448 1-1 1-1-.448-1-1zm-3.5 6c1.654 0 3-1.346 3-3h-6c0 1.654 1.346 3 3 3z"/></svg>
-                                <span class="project-tag">Robotik</span>
-                            </div>
-                            <div class="project-info">
-                                <h3 class="project-name">6 Eksenli Robot Kol</h3>
-                                <p class="project-desc">Arduino tabanlı, 6 eksende serbest hareket yeteneğine sahip mekanik robot kol tasarımı ve kontrol yazılımı.</p>
-                                <div class="project-tech-tags">
-                                    <span>Arduino</span>
-                                    <span>Servo Motors</span>
-                                    <span>C++</span>
-                                    <span>CAD</span>
+                    <!-- Klasör: Robotik & Donanım -->
+                    <div class="folder-wrapper" data-category="robotics">
+                        <div class="folder-3d">
+                            <!-- Klasör Arka Yüz -->
+                            <div class="folder-back"></div>
+                            <!-- Klasör Sekmesi -->
+                            <div class="folder-tab"></div>
+                            
+                            <!-- Klasör İçindeki Proje Kartları -->
+                            <div class="folder-cards-container">
+                                <div class="folder-project-card" data-project-id="robot-kol">
+                                    <div class="folder-card-preview robotics-bg">
+                                        <svg class="folder-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v4m0 0l-4 4m4-4l4 4M5 16h14M9 16v4m6-4v4" />
+                                        </svg>
+                                    </div>
+                                    <div class="folder-card-overlay"></div>
+                                    <span class="folder-card-title">Robot Kol</span>
                                 </div>
-                                <div class="project-card-actions">
-                                    <button class="btn-card-details">Detaylar</button>
-                                    <a href="https://www.youtube.com/watch?v=ZEir102PxJ8" target="_blank" class="card-link" aria-label="YouTube Videosu">
-                                        <svg viewBox="0 0 24 24"><path d="M23.498 6.163c-.272-.98-1.04-1.748-2.02-2.02C19.716 3.745 12 3.745 12 3.745s-7.717 0-9.478.398c-.98.272-1.748 1.04-2.02 2.02C.1 7.925.1 12 .1 12s0 4.075.402 5.837c.272.98 1.04 1.748 2.02 2.02C4.283 20.255 12 20.255 12 20.255s7.717 0 9.478-.398c.98-.272 1.748-1.04 2.02-2.02C23.9 16.075 23.9 12 23.9 12s0-4.075-.402-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        <div class="card-glare"></div>
-                    </div>
-                </article>
-
-                    <!-- Dart Fırlatan Taret -->
-                    <article class="project-card" data-category="robotics" data-project-id="taret">
-                        <div class="project-card-inner">
-                            <div class="project-image-placeholder robotics-bg-2">
-                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M19 4h-14c-2.761 0-5 2.239-5 5v6c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-6c0-2.761-2.238-5-5-5zm-11 11h-3v-4h3v4zm6-2h-3v-2h3v2zm5 2h-3v-4h3v4z"/></svg>
-                                <span class="project-tag">Robotik</span>
-                            </div>
-                            <div class="project-info">
-                                <h3 class="project-name">Dart Fırlatan Taret</h3>
-                                <p class="project-desc">Arduino kontrollü, pan-tilt servo mekanizması ile hedefleme yapabilen ve uzaktan kontrol edilebilen fırlatma sistemi.</p>
-                                <div class="project-tech-tags">
-                                    <span>Arduino</span>
-                                    <span>C/C++</span>
-                                    <span>Gömülü Sistemler</span>
-                                    <span>Donanım Tasarımı</span>
-                                </div>
-                                <div class="project-card-actions">
-                                    <button class="btn-card-details">Detaylar</button>
+                                <div class="folder-project-card" data-project-id="taret">
+                                    <div class="folder-card-preview robotics-bg-2">
+                                        <svg class="folder-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <circle cx="12" cy="12" r="6" />
+                                            <circle cx="12" cy="12" r="2" />
+                                            <path d="M12 2v20M2 12h20" stroke-linecap="round" />
+                                        </svg>
+                                    </div>
+                                    <div class="folder-card-overlay"></div>
+                                    <span class="folder-card-title">Dart Taret</span>
                                 </div>
                             </div>
-                        <div class="card-glare"></div>
-                    </div>
-                </article>
-
-                    <!-- Odemy Web Site -->
-                    <article class="project-card" data-category="web" data-project-id="odemy">
-                        <div class="project-card-inner">
-                            <div class="project-image-placeholder web-bg">
-                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M12 2c5.522 0 10 4.477 10 10s-4.478 10-10 10-10-4.477-10-10 4.478-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.3 14.3c-.387.263-1.073.57-1.89.8-1.014.286-2.185.4-3.41.4-1.225 0-2.396-.114-3.41-.4-.817-.23-1.503-.537-1.89-.8-.328-.223-.59-.496-.59-.8v-4c0-.304.262-.577.59-.8.387-.263 1.073-.57 1.89-.8 1.014-.286 2.185-.4 3.41-.4 1.225 0 2.396.114 3.41.4.817.23 1.503.537 1.89.8.328.223.59.496.59.8v4c0 .304-.262.577-.59.8z"/></svg>
-                                <span class="project-tag">Web Sitesi</span>
-                            </div>
-                            <div class="project-info">
-                                <h3 class="project-name">Odemy Platformu</h3>
-                                <p class="project-desc">PHP ve MySQL (PHPMyAdmin) tabanlı, kullanıcıların ders oluşturup satın alabildiği tam işlevsel e-öğrenme klonu.</p>
-                                <div class="project-tech-tags">
-                                    <span>PHP</span>
-                                    <span>MySQL</span>
-                                    <span>HTML/CSS</span>
-                                    <span>JavaScript</span>
-                                </div>
-                                <div class="project-card-actions">
-                                    <button class="btn-card-details">Detaylar</button>
-                                    <a href="https://github.com/IHuseyinACAN/Odemy-Web-Site-with-PHPMyAdmin" target="_blank" class="card-link" aria-label="GitHub Kodları">
-                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
-                                    </a>
+                            
+                            <!-- Klasör Ön Yüz -->
+                            <div class="folder-front">
+                                <div class="folder-front-content">
+                                    <svg class="folder-front-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <span class="folder-front-tag">Robotik</span>
                                 </div>
                             </div>
-                        <div class="card-glare"></div>
-                    </div>
-                </article>
-
-                    <!-- IIRCE Web Site -->
-                    <article class="project-card" data-category="web" data-project-id="iirce">
-                        <div class="project-card-inner">
-                            <div class="project-image-placeholder web-bg-2">
-                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M12 2c5.522 0 10 4.477 10 10s-4.478 10-10 10-10-4.477-10-10 4.478-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 8c0-.552.448-1 1-1s1 .448 1 1-.448 1-1 1-1-.448-1-1zm6 0c0-.552.448-1 1-1s1 .448 1 1-.448 1-1 1-1-.448-1-1zm-3.5 6c1.654 0 3-1.346 3-3h-6c0 1.654 1.346 3 3 3z"/></svg>
-                                <span class="project-tag">Web Sitesi</span>
-                            </div>
-                            <div class="project-info">
-                                <h3 class="project-name">IIRCE Konferans Platformu</h3>
-                                <p class="project-desc">Uluslararası Bilişim ve Robotik Konferansı için tasarlanan etkinlik, duyuru ve kayıt yönetimi içeren web sitesi.</p>
-                                <div class="project-tech-tags">
-                                    <span>HTML5</span>
-                                    <span>CSS3</span>
-                                    <span>JavaScript</span>
-                                    <span>Responsive</span>
-                                </div>
-                                <div class="project-card-actions">
-                                    <button class="btn-card-details">Detaylar</button>
-                                    <a href="https://github.com/IHuseyinACAN/-IIRCE" target="_blank" class="card-link" aria-label="GitHub Kodları">
-                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        <div class="card-glare"></div>
-                    </div>
-                </article>
-
-                    <!-- IPO Tracker -->
-                    <article class="project-card" data-category="web" data-project-id="ipo">
-                        <div class="project-card-inner">
-                            <div class="project-image-placeholder web-bg-3">
-                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M21 3h-18c-1.654 0-3 1.346-3 3v12c0 1.654 1.346 3 3 3h18c1.654 0 3-1.346 3-3v-12c0-1.654-1.346-3-3-3zm-9 14h-6v-2h6v2zm3-4h-9v-2h9v2zm3-4h-12v-2h12v2z"/></svg>
-                                <span class="project-tag">Web Sitesi</span>
-                            </div>
-                            <div class="project-info">
-                                <h3 class="project-name">IPO Tracker</h3>
-                                <p class="project-desc">İlk halka arz (IPO) takvimlerini, talep tarihlerini ve sonuçlarını dinamik olarak listeleyen ve takip eden sistem.</p>
-                                <div class="project-tech-tags">
-                                    <span>Web Tracker</span>
-                                    <span>API</span>
-                                    <span>JSON</span>
-                                    <span>CSS Grid</span>
-                                </div>
-                                <div class="project-card-actions">
-                                    <button class="btn-card-details">Detaylar</button>
-                                    <a href="https://github.com/IHuseyinACAN/ipo-tracker" target="_blank" class="card-link" aria-label="GitHub Kodları">
-                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        <div class="card-glare"></div>
-                    </div>
-                </article>
-
-                    <!-- Body Metrics -->
-                    <article class="project-card" data-category="web" data-project-id="body-metrics">
-                        <div class="project-card-inner">
-                            <div class="project-image-placeholder web-bg-4">
-                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M12 3c-1.2 0-2.4 1.1-2.4 2.5 0 1.2.9 2.2 2 2.5-.2.5-.6.9-1.1.9h-2.1c-.8 0-1.4.6-1.4 1.4v2.7c0 .8.6 1.4 1.4 1.4h.4v6.6c0 .8.6 1.4 1.4 1.4h3.6c.8 0 1.4-.6 1.4-1.4v-6.6h.4c.8 0 1.4-.6 1.4-1.4v-2.7c0-.8-.6-1.4-1.4-1.4h-2.1c-.5 0-.9-.4-1.1-.9 1.1-.3 2-1.3 2-2.5 0-1.4-1.2-2.5-2.4-2.5z"/></svg>
-                                <span class="project-tag">Web Sitesi</span>
-                            </div>
-                            <div class="project-info">
-                                <h3 class="project-name">Body Metrics</h3>
-                                <p class="project-desc">Kullanıcıların vücut ölçülerini girip BMI, yağ oranı ve fiziksel değişim grafikleriyle gelişimlerini izlediği web uygulaması.</p>
-                                <div class="project-tech-tags">
-                                    <span>JavaScript</span>
-                                    <span>Calculators</span>
-                                    <span>ChartJS</span>
-                                    <span>Local Storage</span>
-                                </div>
-                                <div class="project-card-actions">
-                                    <button class="btn-card-details">Detaylar</button>
-                                    <a href="https://github.com/IHuseyinACAN/body-metrics" target="_blank" class="card-link" aria-label="GitHub Kodları">
-                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        <div class="card-glare"></div>
-                    </div>
-                </article>
-
-                    <!-- Kişisel Portfolyo -->
-                    <article class="project-card" data-category="web" data-project-id="portfolio">
-                        <div class="project-card-inner">
-                            <div class="project-image-placeholder web-bg-2">
-                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M12 2c5.522 0 10 4.477 10 10s-4.478 10-10 10-10-4.477-10-10 4.478-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 8c0-.552.448-1 1-1s1 .448 1 1-.448 1-1 1-1-.448-1-1zm6 0c0-.552.448-1 1-1s1 .448 1 1-.448 1-1 1-1-.448-1-1zm-3.5 6c1.654 0 3-1.346 3-3h-6c0 1.654 1.346 3 3 3z"/></svg>
-                                <span class="project-tag">Web Sitesi</span>
-                            </div>
-                            <div class="project-info">
-                                <h3 class="project-name">Kişisel Portfolyo</h3>
-                                <p class="project-desc">Bu web sitesinin kendisi. Cam morfizasyonu (Glassmorphism) estetiği, 3D tilt kart yansımaları ve yörüngesel zaman çizelgesi içeren interaktif portfolyo.</p>
-                                <div class="project-tech-tags">
-                                    <span>HTML5 / CSS3</span>
-                                    <span>JavaScript</span>
-                                    <span>Glassmorphism</span>
-                                    <span>3D Effects</span>
-                                </div>
-                                <div class="project-card-actions">
-                                    <button class="btn-card-details">Detaylar</button>
-                                    <a href="https://github.com/IHuseyinACAN/personal-portfolio" target="_blank" class="card-link" aria-label="GitHub Kodları">
-                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="card-glare"></div>
+                            <!-- Klasör Parlama Efekti -->
+                            <div class="folder-shine"></div>
                         </div>
-                    </article>
-
-                    <!-- MomentumFit -->
-                    <article class="project-card" data-category="desktop" data-project-id="momentumfit">
-                        <div class="project-card-inner">
-                            <div class="project-image-placeholder desktop-bg">
-                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M4 2h16c1.103 0 2 .897 2 2v12c0 1.103-.897 2-2 2h-7v2h3v2h-8v-2h3v-2h-7c-1.103 0-2-.897-2-2v-12c0-1.103.897-2 2-2zm16 2h-16v10h16v-10z"/></svg>
-                                <span class="project-tag">Masaüstü</span>
-                            </div>
-                            <div class="project-info">
-                                <h3 class="project-name">MomentumFit</h3>
-                                <p class="project-desc">Masaüstü ortamında çalışan, sporcular için antrenman programı oluşturma, kalori takibi ve performans analizi sunan yazılım.</p>
-                                <div class="project-tech-tags">
-                                    <span>C#</span>
-                                    <span>WPF / WinForms</span>
-                                    <span>SQL Server</span>
-                                    <span>Data Visualizer</span>
-                                </div>
-                                <div class="project-card-actions">
-                                    <button class="btn-card-details">Detaylar</button>
-                                    <a href="https://github.com/IHuseyinACAN/MomentumFit" target="_blank" class="card-link" aria-label="GitHub Kodları">
-                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
-                                    </a>
-                                </div>
-                            </div>
-                        <div class="card-glare"></div>
+                        <div class="folder-info">
+                            <h3 class="folder-name">Robotik & Gömülü Donanım</h3>
+                            <p class="folder-count">2 Proje</p>
+                        </div>
                     </div>
-                </article>
 
-                    <!-- Tarihin Efsaneleri -->
-                    <article class="project-card" data-category="mobile" data-project-id="tarih-efsaneleri">
-                        <div class="project-card-inner">
-                            <div class="project-image-placeholder mobile-bg">
-                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M17 2h-10c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2zm-5 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4.25-4h-8.5v-11h8.5v11z"/></svg>
-                                <span class="project-tag">Mobil</span>
-                            </div>
-                            <div class="project-info">
-                                <h3 class="project-name">Tarihin Efsaneleri</h3>
-                                <p class="project-desc">Tarihteki önemli şahsiyetleri, savaşları ve dönüm noktalarını hikayeleştirerek kullanıcılara sunan mobil uygulama.</p>
-                                <div class="project-tech-tags">
-                                    <span>Flutter</span>
-                                    <span>Dart</span>
-                                    <span>SQLite</span>
-                                    <span>Material 3</span>
+                    <!-- Klasör: Web Geliştirme -->
+                    <div class="folder-wrapper" data-category="web">
+                        <div class="folder-3d">
+                            <!-- Klasör Arka Yüz -->
+                            <div class="folder-back"></div>
+                            <!-- Klasör Sekmesi -->
+                            <div class="folder-tab"></div>
+                            
+                            <!-- Klasör İçindeki Proje Kartları -->
+                            <div class="folder-cards-container">
+                                <div class="folder-project-card" data-project-id="odemy">
+                                    <div class="folder-card-preview web-bg">
+                                        <svg class="folder-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="folder-card-overlay"></div>
+                                    <span class="folder-card-title">Odemy</span>
                                 </div>
-                                <div class="project-card-actions">
-                                    <button class="btn-card-details">Detaylar</button>
-                                    <a href="https://github.com/IHuseyinACAN/Tarihin-Efsaneleri-Mobil-app" target="_blank" class="card-link" aria-label="GitHub Kodları">
-                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
-                                    </a>
+                                <div class="folder-project-card" data-project-id="iirce">
+                                    <div class="folder-card-preview web-bg-2">
+                                        <svg class="folder-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <div class="folder-card-overlay"></div>
+                                    <span class="folder-card-title">IIRCE</span>
+                                </div>
+                                <div class="folder-project-card" data-project-id="ipo">
+                                    <div class="folder-card-preview web-bg-3">
+                                        <svg class="folder-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M23 6l-9.5 9.5-5-5L1 18" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M17 6h6v6" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="folder-card-overlay"></div>
+                                    <span class="folder-card-title">IPO Tracker</span>
+                                </div>
+                                <div class="folder-project-card" data-project-id="body-metrics">
+                                    <div class="folder-card-preview web-bg-4">
+                                        <svg class="folder-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="folder-card-overlay"></div>
+                                    <span class="folder-card-title">Body Metrics</span>
+                                </div>
+                                <div class="folder-project-card" data-project-id="portfolio">
+                                    <div class="folder-card-preview web-bg-2">
+                                        <svg class="folder-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M16 18l6-6-6-6M8 6L2 12l6 6" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="folder-card-overlay"></div>
+                                    <span class="folder-card-title">Portfolyo</span>
                                 </div>
                             </div>
-                        <div class="card-glare"></div>
+                            
+                            <!-- Klasör Ön Yüz -->
+                            <div class="folder-front">
+                                <div class="folder-front-content">
+                                    <svg class="folder-front-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                                    </svg>
+                                    <span class="folder-front-tag">Web</span>
+                                </div>
+                            </div>
+                            <!-- Klasör Parlama Efekti -->
+                            <div class="folder-shine"></div>
+                        </div>
+                        <div class="folder-info">
+                            <h3 class="folder-name">Web Geliştirme</h3>
+                            <p class="folder-count">5 Proje</p>
+                        </div>
                     </div>
-                </article>
 
-                    <!-- TAKIM16 -->
-                    <article class="project-card" data-category="mobile" data-project-id="takim16">
-                        <div class="project-card-inner">
-                            <div class="project-image-placeholder mobile-bg-2">
-                                <svg class="project-category-icon" viewBox="0 0 24 24"><path d="M17 2h-10c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-16c0-1.1-.9-2-2-2zm-5 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4.25-4h-8.5v-11h8.5v11z"/></svg>
-                                <span class="project-tag">Mobil</span>
-                            </div>
-                            <div class="project-info">
-                                <h3 class="project-name">TAKIM16</h3>
-                                <p class="project-desc">Ekip işbirliğiyle ortaklaşa geliştirilen, modern UI/UX tasarımına ve gelişmiş durum yönetimine sahip mobil uygulama.</p>
-                                <div class="project-tech-tags">
-                                    <span>Flutter</span>
-                                    <span>Firebase</span>
-                                    <span>Git/Collaboration</span>
-                                    <span>State Management</span>
+                    <!-- Klasör: Mobil Geliştirme -->
+                    <div class="folder-wrapper" data-category="mobile">
+                        <div class="folder-3d">
+                            <!-- Klasör Arka Yüz -->
+                            <div class="folder-back"></div>
+                            <!-- Klasör Sekmesi -->
+                            <div class="folder-tab"></div>
+                            
+                            <!-- Klasör İçindeki Proje Kartları -->
+                            <div class="folder-cards-container">
+                                <div class="folder-project-card" data-project-id="tarih-efsaneleri">
+                                    <div class="folder-card-preview mobile-bg">
+                                        <svg class="folder-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="folder-card-overlay"></div>
+                                    <span class="folder-card-title">Efsaneler</span>
                                 </div>
-                                <div class="project-card-actions">
-                                    <button class="btn-card-details">Detaylar</button>
-                                    <a href="https://github.com/HomamAbosaleh/TAKIM16" target="_blank" class="card-link" aria-label="GitHub Kodları">
-                                        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm2.5 12h-2.5v3h-1v-3h-2.5v-1h2.5v-3h1v3h2.5v1z"/></svg>
-                                    </a>
+                                <div class="folder-project-card" data-project-id="takim16">
+                                    <div class="folder-card-preview mobile-bg-2">
+                                        <svg class="folder-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <circle cx="9" cy="7" r="4" />
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="folder-card-overlay"></div>
+                                    <span class="folder-card-title">TAKIM16</span>
                                 </div>
                             </div>
-                        <div class="card-glare"></div>
+                            
+                            <!-- Klasör Ön Yüz -->
+                            <div class="folder-front">
+                                <div class="folder-front-content">
+                                    <svg class="folder-front-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                                    </svg>
+                                    <span class="folder-front-tag">Mobil</span>
+                                </div>
+                            </div>
+                            <!-- Klasör Parlama Efekti -->
+                            <div class="folder-shine"></div>
+                        </div>
+                        <div class="folder-info">
+                            <h3 class="folder-name">Mobil Geliştirme</h3>
+                            <p class="folder-count">2 Proje</p>
+                        </div>
                     </div>
-                </article>
 
+                    <!-- Klasör: Masaüstü Geliştirme -->
+                    <div class="folder-wrapper" data-category="desktop">
+                        <div class="folder-3d">
+                            <!-- Klasör Arka Yüz -->
+                            <div class="folder-back"></div>
+                            <!-- Klasör Sekmesi -->
+                            <div class="folder-tab"></div>
+                            
+                            <!-- Klasör İçindeki Proje Kartları -->
+                            <div class="folder-cards-container">
+                                <div class="folder-project-card" data-project-id="momentumfit">
+                                    <div class="folder-card-preview desktop-bg">
+                                        <svg class="folder-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M6 7.5h12M6 16.5h12M18 5v14M6 5v14M3 9v6M21 9v6" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <div class="folder-card-overlay"></div>
+                                    <span class="folder-card-title">MomentumFit</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Klasör Ön Yüz -->
+                            <div class="folder-front">
+                                <div class="folder-front-content">
+                                    <svg class="folder-front-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25M19.5 3h-15A2.25 2.25 0 002.25 5.25v9.5c0 .62.25 1.18.66 1.59" />
+                                    </svg>
+                                    <span class="folder-front-tag">Masaüstü</span>
+                                </div>
+                            </div>
+                            <!-- Klasör Parlama Efekti -->
+                            <div class="folder-shine"></div>
+                        </div>
+                        <div class="folder-info">
+                            <h3 class="folder-name">Masaüstü Geliştirme</h3>
+                            <p class="folder-count">1 Proje</p>
+                    </div>
+
+                </div>
+
+                <!-- Klasör Genişletilmiş Detay Paneli -->
+                <div class="folder-details-panel" id="folder-details-panel">
+                    <div class="panel-header">
+                        <div class="panel-header-title-box">
+                            <span class="panel-icon" id="panel-icon">📂</span>
+                            <h4 class="panel-category-title" id="panel-category-title">Klasör İçeriği</h4>
+                        </div>
+                        <button class="panel-close-btn" id="panel-close-btn" aria-label="Kapat">&times;</button>
+                    </div>
+                    <div class="panel-body">
+                        <!-- Sol Kolon: Proje Listesi -->
+                        <div class="panel-list-col">
+                            <ul class="panel-project-list" id="panel-project-list">
+                                <!-- Javascript dinamik olarak dolduracak -->
+                            </ul>
+                        </div>
+                        <!-- Sağ Kolon: Görsel/Şematik Önizleme Alanı -->
+                        <div class="panel-preview-col">
+                            <div class="project-hover-preview" id="project-hover-preview">
+                                <div class="preview-visual-box" id="preview-visual-box">
+                                    <!-- Dinamik olarak SVG animasyonları veya çizimleri buraya gelecek -->
+                                    <div class="preview-placeholder">
+                                        <svg class="preview-placeholder-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-3.447-3.446.57 2.225-2.51-5.072-1.358m10.218 4.592L19.638 12m-6.864 2.378L18 8.25M12 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        <span>Detayları görmek için listedeki projelerin üzerine gelin</span>
+                                    </div>
+                                </div>
+                                <div class="preview-text-box">
+                                    <h4 class="preview-proj-title" id="preview-proj-title">Proje Önizleme</h4>
+                                    <p class="preview-proj-desc" id="preview-proj-desc">Bir projeyi incelemek için fareyi üzerine getirin, tam detaylar için tıklayın.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -623,6 +598,6 @@
     </div>
 
     <!-- JavaScript Dosyası -->
-    <script src="app.js"></script>
+    <script src="app.js?v=1.6"></script>
 </body>
 </html>
