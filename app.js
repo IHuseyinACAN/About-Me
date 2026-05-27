@@ -6,18 +6,23 @@ const projectDetails = {
         title: "6 Eksenli Robot Kol",
         category: "Robotik & Donanım",
         categoryKey: "robotics",
-        techs: ["Arduino", "Servo Motors", "C++", "Ters Kinematik"],
-        tagline: "Arduino tabanlı, 6 serbestlik derecesine (6-DOF) sahip endüstriyel robotik kol sistemi.",
-        media: `<div class="modal-media"><iframe src="https://www.youtube.com/embed/ZEir102PxJ8" allowfullscreen></iframe></div>`,
+        techs: ["Arduino", "Servo Motors", "C++", "GUI", "Export/Import"],
+        tagline: "Arduino ve servo motorlar ile hayata geçirilen bu robotik kol projesi, özel kontrol arayüzü sayesinde hareket pozisyonlarını kaydedip otomatik olarak oynatabilen, verileri dışa/içe aktarma özelliklerine sahip akıllı bir mekatronik uygulamadır.",
+        media: `
+        <div class="modal-media">
+            <video class="modal-video" autoplay loop muted playsinline poster="assets/robot-kol.jpeg" style="width: 100%; max-height: 360px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-glass);">
+                <source src="assets/robot-kol.mp4" type="video/mp4">
+                Tarayıcınız video oynatmayı desteklemiyor.
+            </video>
+        </div>`,
         description: `
-            <p>Arduino tabanlı bu projede, 6 serbestlik derecesine (6-DOF) sahip endüstriyel tip bir robot kolun mekanik montajı, elektronik devre tasarımı ve kontrol yazılımı geliştirilmiştir.</p>
-            <p>Hassas servo motorların koordineli kontrolü ile nesneleri taşıma, sıralama ve belirli geometrik şekilleri çizme gibi görevler başarıyla yerine getirilmiştir.</p>
+            <p>Arduino Uno mikrodenetleyicisi, yüksek torklu MG995 ve hassas MG90S servo motorlar kullanılarak geliştirilen bu robotik kol projesi; özel olarak tasarlanmış bir grafik arayüz (GUI) üzerinden eklemlerin manuel kontrol edilmesini, ardışık hareket pozisyonlarının kaydedilip otomatik olarak tekrarlanmasını ve bu hareket koordinatlarının dışa aktarılıp (export) yeniden içe aktarılmasını (import) sağlayan kapsamlı bir mekatronik ve gömülü sistem çalışmasıdır.</p>
             <h4>Öne Çıkan Özellikler:</h4>
             <ul class="modal-features">
-                <li><strong>C++ Gömülü Kod</strong> ile optimize edilmiş servo PWM sinyalleri.</li>
-                <li>Fiziksel joystick kontrolü ve PC arayüzü üzerinden koordinat bazlı kontrol desteği.</li>
-                <li>Eklem açılarını hesaplamak için temel Ters Kinematik (Inverse Kinematics) matematiksel modelleri.</li>
-                <li>Yüksek torklu servo motorlar ve 3D yazıcı ile üretilmiş mekanik şasi.</li>
+                <li><strong>Arduino & C++ Gömülü Kod</strong>: Düşük gecikmeli ve kararlı servo konumlandırma.</li>
+                <li><strong>Pozisyon Kayıt & Oynatma</strong>: Robot kolun hareket adımlarını kaydedip istenen hızda otomatik tekrarlama.</li>
+                <li><strong>Veri Dışa/İçe Aktarma (Export/Import)</strong>: Kaydedilen hareket koordinatlarının JSON/Text formatında yedeklenmesi ve tekrar yüklenmesi.</li>
+                <li><strong>Gelişmiş Arayüz Kontrolü</strong>: Bilgisayar üzerinden tüm eklemleri anlık izleme ve açısal kalibrasyon imkanı.</li>
             </ul>
         `,
         github: "https://github.com/IHuseyinACAN",
@@ -43,16 +48,14 @@ const projectDetails = {
         categoryKey: "robotics",
         techs: ["Arduino", "Servo", "Sensörler", "Tetik Motoru"],
         tagline: "2 eksenli yönlenebilen ve uzaktan tetiklenebilen elektro-mekanik dart taret fırlatıcısı.",
-        media: `<div class="modal-media"><div class="modal-media-placeholder robotics-bg-2">🎯 [Dart Taret Görseli]</div></div>`,
+        media: `<div class="modal-media"><img src="assets/taret.png" alt="Dart Taret" class="modal-image" style="width: 100%; max-height: 360px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-glass);"></div>`,
         description: `
-            <p>Arduino mikrodenetleyici kullanılarak geliştirilen bu taret sistemi, 2 eksenli (Pan-Tilt) servo motor mekanizması sayesinde hedefleme yapabilmektedir.</p>
-            <p>Donanımında yer alan tetik mekanizması ve fırlatıcı motorlar sayesinde belirlenen hedeflere yüksek hassasiyetle dart fırlatabilmektedir.</p>
+            <p>Arduino ve 2 eksenli (pan-tilt) yönlendirme mekanizması kullanılarak hayata geçirilen bu proje, hedef tespiti ve otomatik dart fırlatma kabiliyetine sahip akıllı bir savunma sistemi prototipidir.</p>
             <h4>Öne Çıkan Özellikler:</h4>
             <ul class="modal-features">
-                <li><strong>Arduino Uno</strong> tabanlı anakart tasarımı ve gömülü servo kontrolü.</li>
-                <li>N20 motorlar ve sürtünmeli fırlatma tekerlekleri ile güçlendirilmiş mekanik atış sistemi.</li>
-                <li>Kızılötesi veya Bluetooth kumanda modülü üzerinden manuel kontrol yeteneği.</li>
-                <li>Ultrasonik sensörler ile mesafe tespiti ve otomatik tetikleme modu geliştirme altyapısı.</li>
+                <li><strong>Çift Eksen Servo Kontrolü</strong>: Yatay ve dikey açılarda hassas yönlendirme.</li>
+                <li><strong>Fırlatma Motoru Sürücüsü</strong>: Yüksek hızlı motorlar vasıtasıyla sürtünme bazlı dart fırlatma mekanizması.</li>
+                <li><strong>Mekatronik Entegrasyon</strong>: 3D yazıcı ile üretilmiş mekanik gövde ve elektronik bileşenlerin uyumlu çalışması.</li>
             </ul>
         `,
         github: "https://github.com/IHuseyinACAN",
@@ -63,8 +66,8 @@ const projectDetails = {
             </style>
             <defs>
                 <linearGradient id="sweep-g" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#a855f7" stop-opacity="0.3"/>
-                    <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+                     <stop offset="0%" stop-color="#a855f7" stop-opacity="0.3"/>
+                     <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
                 </linearGradient>
             </defs>
             <circle cx="50" cy="50" r="40" class="tar-line" stroke-dasharray="2 3"/>
@@ -82,17 +85,15 @@ const projectDetails = {
         category: "Web Geliştirme",
         categoryKey: "web",
         techs: ["PHP", "MySQL", "PHPMyAdmin", "HTML/CSS"],
-        tagline: "PHP ve ilişkisel veritabanı altyapılı, eğitmen ve öğrenci sekmelerine sahip e-öğrenme klonu.",
-        media: `<div class="modal-media"><div class="modal-media-placeholder web-bg">🎓 [Odemy Platform Arayüzü]</div></div>`,
+        tagline: "Odemy, PHP ve phpMyAdmin teknolojilerini kullanarak dinamik veri yönetimini ve modern bir eğitim arayüzünü bir araya getiren veritabanı destekli bir web sitesi projesidir.",
+        media: `<div class="modal-media"><img src="assets/odemy.png" alt="Odemy Platformu" class="modal-image" style="width: 100%; max-height: 360px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-glass);"></div>`,
         description: `
-            <p>Odemy, Udemy platformunun temel özelliklerini barındıran, PHP tabanlı ve veri tabanı yönetiminde PHPMyAdmin (MySQL) kullanılan dinamik bir e-öğrenme web sitesidir.</p>
-            <p>Kullanıcılar sisteme öğrenci veya eğitmen olarak kaydolabilir. Eğitmenler yeni kurs yükleyebilir, video dersler ekleyebilir ve kurs fiyatlarını belirleyebilir. Öğrenciler ise bu kursları sepetlerine ekleyip satın alarak izleyebilirler.</p>
+            <p>Odemy, PHP programlama dili ve MySQL veritabanı yönetim aracı olan phpMyAdmin mimarisi üzerine kurulu; dinamik içerik yönetimi, kullanıcı kayıt sistemleri ve veri akışı optimizasyonlarını entegre ederek modern bir eğitim veya kurs platformunun temel işlevlerini web ortamında simüle etmeyi amaçlayan kapsamlı bir web geliştirme projesidir.</p>
             <h4>Öne Çıkan Özellikler:</h4>
             <ul class="modal-features">
-                <li><strong>PHPMyAdmin & MySQL</strong> ile tasarlanmış ilişkisel veri tabanı şeması (Kullanıcılar, Kurslar, Satın Alımlar, Sepetler).</li>
-                <li>Güvenli kullanıcı oturumu yönetimi (Session handling) ve şifrelenmiş veri tabanı kayıtları.</li>
-                <li>Dinamik kurs arama, kategori filtreleme ve detaylı eğitmen paneli (Dashboard).</li>
-                <li>Tamamen duyarlı (Responsive) HTML5 ve CSS3 arayüz tasarımı.</li>
+                <li><strong>İlişkisel MySQL Veritabanı</strong>: Öğrenciler, eğitmenler ve kurs kayıtları için optimize edilmiş tablolar.</li>
+                <li><strong>Dinamik İçerik Yönetimi</strong>: PHP ile sunucu tarafında veri işleme, kurs ekleme ve listeleme.</li>
+                <li><strong>Kullanıcı Oturumları</strong>: Güvenli giriş-çıkış ve eğitmen/öğrenci rol yönetimi.</li>
             </ul>
         `,
         github: "https://github.com/IHuseyinACAN/Odemy-Web-Site-with-PHPMyAdmin",
@@ -112,22 +113,20 @@ const projectDetails = {
             <polygon points="66,49 66,55 71,52" fill="#06b6d4"/>
         </svg>`
     },
-    "iirce": {
-        title: "IIRCE Konferans Platformu",
+    "siirce": {
+        title: "Şiirce Edebiyat Platformu",
         category: "Web Geliştirme",
         categoryKey: "web",
         techs: ["HTML5", "CSS3", "JavaScript", "Responsive"],
-        tagline: "Uluslararası Bilişim ve Robotik Konferansı için tasarlanan etkinlik yönetim ve kayıt sitesi.",
-        media: `<div class="modal-media"><div class="modal-media-placeholder web-bg-2">🌐 [IIRCE Konferans Sitesi]</div></div>`,
+        tagline: "ŞİİRCE; geleneksel şiir kültürünü modern web ve mobil teknolojilerle buluşturarak, kullanıcıların zengin edebi içeriklere kolayca erişmesini ve dijital bir şiir arşivi oluşturmasını sağlayan yenilikçi bir edebiyat platformudur.",
+        media: `<div class="modal-media"><img src="assets/siirce.png" alt="Şiirce Edebiyat Platformu" class="modal-image" style="width: 100%; max-height: 360px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-glass);"></div>`,
         description: `
-            <p>International Informatics and Robotics Conference & Exhibition (IIRCE) için özel olarak tasarlanan bu web sitesi, bilimsel bir etkinliğin tüm dijital ihtiyaçlarını karşılamak üzere tasarlanmıştır.</p>
-            <p>Katılımcılar konferans programını görebilir, konuşmacı biyografilerini inceleyebilir ve etkinlik biletleri veya kayıt işlemleri için bilgi edinebilirler.</p>
+            <p>ŞİİRCE; zengin edebi mirasımızın en güçlü yapı taşı olan şiir sanatını modern teknolojinin imkanlarıyla harmanlayarak, kullanıcıların şairleri keşfetmesine, kendi favori dizelerini arşivlemesine ve şiirin estetik dünyasıyla her an etkileşimde kalmasına olanak tanıyan, hem web hem de mobil platformlar için optimize edilmiş kapsamlı bir dijital edebiyat ekosistemidir.</p>
             <h4>Öne Çıkan Özellikler:</h4>
             <ul class="modal-features">
-                <li>Konferans programı ve konuşmacılar için filtreli interaktif zaman akışları.</li>
-                <li>İletişim ve kayıt formları için dinamik JavaScript doğrulama (validation) mekanizmaları.</li>
-                <li>Karanlık ve aydınlık mod uyumuna sahip, modern cam efektleri içeren arayüz tasarımı.</li>
-                <li>SEO uyumlu semantik HTML yapısı ve hızlı sayfa yükleme optimizasyonları.</li>
+                <li><strong>Edebi Arama ve Keşif</strong>: Yüzyılların şiir mirasını şair, dönem veya temaya göre filtreleme.</li>
+                <li><strong>Kişisel Şiir Defteri</strong>: Beğenilen dizeleri bulutta veya yerel hafızada arşivleme seçeneği.</li>
+                <li><strong>Minimalist Okuma Arayüzü</strong>: Okuma odağını artıran göz yormayan tipografi ve renk paletleri.</li>
             </ul>
         `,
         github: "https://github.com/IHuseyinACAN/-IIRCE",
@@ -156,17 +155,15 @@ const projectDetails = {
         category: "Web Geliştirme",
         categoryKey: "web",
         techs: ["JavaScript", "Fetch API", "JSON Data", "CSS Grid"],
-        tagline: "Borsadaki en son halka arz takvimlerini ve hisse dağılımlarını listeleyen takipçi.",
-        media: `<div class="modal-media"><div class="modal-media-placeholder web-bg-3">📈 [IPO Tracker Grafik Paneli]</div></div>`,
+        tagline: "ipo-tracker, halka arz süreçlerini ve güncel borsa verilerini dinamik bir şekilde takip ederek yatırımcıların doğru kararlar almasına yardımcı olan pratik bir finansal izleme uygulamasıdır.",
+        media: `<div class="modal-media"><img src="assets/ipo.png" alt="IPO Tracker" class="modal-image" style="width: 100%; max-height: 360px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-glass);"></div>`,
         description: `
-            <p>Finans dünyasını yakından takip eden kullanıcılar için geliştirilen IPO Tracker, güncel halka arz bilgilerini tek bir ekranda derleyen interaktif bir web izleyicisidir.</p>
-            <p>Sistem, talep toplama tarihleri, halka arz fiyatları, dağıtım yöntemleri ve borsa işlem durumları gibi kritik verileri düzenli bir tablo ve zaman çizelgesi formatında sunar.</p>
+            <p>ipo-tracker; yatırımcıların finansal piyasalardaki güncel halka arz (IPO) süreçlerini yakından izlemelerine, gelecek talep toplama tarihlerini, dağıtılacak olası lot miktarlarını ve şirket detaylarını tek bir platform üzerinden analiz ederek yatırım stratejilerini daha verimli planlamalarına olanak tanıyan kapsamlı bir finansal takip ve veri analiz projesidir.</p>
             <h4>Öne Çıkan Özellikler:</h4>
             <ul class="modal-features">
-                <li>JavaScript Fetch API ile veri tabanından veya harici kaynaklardan dinamik halka arz verisi çekme.</li>
-                <li>Kullanıcı dostu arama barı ve 'Aktif', 'Tamamlanmış', 'Bekleyen' durumlarına göre gelişmiş filtreler.</li>
-                <li>Halka arz sonuçlarını ve hisse dağılımlarını gösteren görsel infografikler.</li>
-                <li>Mobil cihazlarda dikey kaydırma kolaylığı sağlayan akıcı grid tasarımı.</li>
+                <li><strong>Dinamik Halka Arz Takvimi</strong>: Yaklaşan ve aktif halka arzların detaylı listelenmesi.</li>
+                <li><strong>Tahmini Lot Hesaplama</strong>: Katılımcı sayısına göre dağıtılacak olası hisse miktarı analizi.</li>
+                <li><strong>Finansal Metrikler</strong>: Şirketlerin sermaye artırımı, fon kullanım yeri ve finansal rapor özetleri.</li>
             </ul>
         `,
         github: "https://github.com/IHuseyinACAN/ipo-tracker",
@@ -196,17 +193,15 @@ const projectDetails = {
         category: "Web Geliştirme",
         categoryKey: "web",
         techs: ["JavaScript", "US Navy Formülü", "ChartJS", "Local Storage"],
-        tagline: "Vücut kitle indeksini, yağ oranını hesaplayan ve ChartJS ile takip sunan fitness hesaplayıcı.",
-        media: `<div class="modal-media"><div class="modal-media-placeholder web-bg-4">⚖️ [Body Metrics Arayüzü]</div></div>`,
+        tagline: "body-metrics, kullanıcıların temel fiziksel ölçümlerini analiz ederek vücut kitle indeksi ve sağlık parametrelerini kolayca takip etmelerini sağlayan pratik bir veri analiz ve takip uygulamasıdır.",
+        media: `<div class="modal-media"><img src="assets/body-metrics.png" alt="Body Metrics" class="modal-image" style="width: 100%; max-height: 360px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-glass);"></div>`,
         description: `
-            <p>Sağlıklı yaşam ve fitness hedeflerini takip etmek isteyenler için geliştirilen Body Metrics, vücut analiz ölçümlerini kaydeden ve görselleştiren bir web uygulamasıdır.</p>
-            <p>Kullanıcıların boy, kilo, bel, boyun ve kalça çevre ölçümlerini kullanarak Vücut Kitle İndeksi (BMI), Vücut Yağ Oranı ve Günlük Kalori İhtiyacını hesaplar.</p>
+            <p>body-metrics; kullanıcıların boy, kilo, yaş ve cinsiyet gibi temel fiziksel verilerini girerek vücut kitle indeksi (BMI), ideal kilo oranı ve günlük kalori ihtiyaçları gibi kritik sağlık parametrelerini hesaplamalarına, bu verileri düzenli olarak takip ederek kişisel gelişim süreçlerini optimize etmelerine olanak tanıyan kullanıcı dostu bir yazılım projesidir.</p>
             <h4>Öne Çıkan Özellikler:</h4>
             <ul class="modal-features">
-                <li><strong>Donanma Formülü (US Navy Body Fat Formula)</strong> kullanarak bilimsel yağ oranı hesaplama motoru.</li>
-                <li>Kullanıcının geçmiş verilerini tarayıcı hafızasında saklamak için **Local Storage** entegrasyonu.</li>
-                <li>Zaman içerisindeki kilo ve yağ oranı değişimlerini gösteren etkileşimli **ChartJS** grafikleri.</li>
-                <li>Cam morfizasyonu tarzında minimal ve göz yormayan karanlık tema arayüzü.</li>
+                <li><strong>Fiziksel Analiz Algoritmaları</strong>: BMI, BMR ve vücut yağ oranı hesaplama motorları.</li>
+                <li><strong>Kişisel Veri Takibi</strong>: Kaydedilen geçmiş ölçümleri listeleyerek gelişim seyrini görselleştirme.</li>
+                <li><strong>Responsive Arayüz</strong>: Mobil ve masaüstü tarayıcılarda kusursuz çalışan kullanıcı deneyimi.</li>
             </ul>
         `,
         github: "https://github.com/IHuseyinACAN/body-metrics",
@@ -256,21 +251,19 @@ const projectDetails = {
         </svg>`
     },
     "momentumfit": {
-        title: "MomentumFit Masaüstü Yazılımı",
+        title: "MomentumFit Spor Takip Sistemi",
         category: "Masaüstü Geliştirme",
         categoryKey: "desktop",
         techs: ["C#", "WPF / WinForms", "SQL Server", "Analitik Grafik"],
-        tagline: "C# WPF tabanlı, spor salonları ve bireysel sporcular için fitness takip ve veri analiz uygulaması.",
-        media: `<div class="modal-media"><div class="modal-media-placeholder desktop-bg">🖥️ [MomentumFit Masaüstü]</div></div>`,
+        tagline: "MomentumFit, kullanıcıların antrenman programlarını ve fiziksel gelişim süreçlerini dinamik bir şekilde izleyerek fitness hedeflerine ulaşmalarını kolaylaştıran motivasyon odaklı bir spor takip uygulamasıdır.",
+        media: `<div class="modal-media"><img src="assets/momentumfit.png" alt="MomentumFit Masaüstü" class="modal-image" style="width: 100%; max-height: 360px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-glass);"></div>`,
         description: `
-            <p>MomentumFit, spor salonları veya bireysel kullanıcılar için geliştirilmiş, C# programlama dili tabanlı profesyonel bir fitness yönetim ve egzersiz takip masaüstü yazılımıdır.</p>
-            <p>Kullanıcılar kişiselleştirilmiş egzersiz programları oluşturabilir, günlük kalori ve makro besin değerlerini girebilir ve antrenman performanslarını veri tabanına kaydedebilirler.</p>
+            <p>MomentumFit; kullanıcıların günlük antrenman rutinlerini planlamalarına, egzersiz performanslarını ve gelişim grafiklerini kayıt altına alarak spor disiplinlerini sürdürülebilir kılmalarına ve kişisel fitness hedeflerine ulaşırken ihtiyaç duydukları motivasyonel ivmeyi (momentum) yakalamalarına olanak tanıyan kapsamlı bir spor ve sağlık takip projesidir.</p>
             <h4>Öne Çıkan Özellikler:</h4>
             <ul class="modal-features">
-                <li><strong>C# ve .NET Framework / WPF</strong> teknolojileri kullanılarak tasarlanmış modern arayüz bileşenleri.</li>
-                <li>SQL Server / SQLite veri tabanı entegrasyonu ile hızlı ve güvenli veri okuma/yazma işlemleri.</li>
-                <li>Kullanıcı bazlı egzersiz geçmişi arşivi ve PDF raporlama modülü.</li>
-                <li>Gelişmiş veri analitiği paneli ile aylık ağırlık kaldırma grafiklerinin çizilmesi.</li>
+                <li><strong>Kişiselleştirilmiş Antrenman Programı</strong>: Egzersiz, set ve tekrar bazlı antrenman planlama modülü.</li>
+                <li><strong>Gelişim Grafikleri</strong>: Kaldırılan ağırlıklar ve vücut ölçülerindeki değişimi gösteren grafiksel analiz.</li>
+                <li><strong>Yerel Veri Depolama</strong>: SQL altyapısıyla antrenman geçmişini güvenli bir şekilde cihazda saklama.</li>
             </ul>
         `,
         github: "https://github.com/IHuseyinACAN/MomentumFit",
@@ -290,21 +283,19 @@ const projectDetails = {
         </svg>`
     },
     "tarih-efsaneleri": {
-        title: "Tarihin Efsaneleri Mobil",
+        title: "Tarihin Efsaneleri",
         category: "Mobil Geliştirme",
         categoryKey: "mobile",
         techs: ["Flutter", "Dart", "SQLite", "Material 3"],
-        tagline: "Tarihi şahsiyetleri ve efsaneleri SQLite veritabanı ile cihazda saklayan mobil rehber uygulaması.",
-        media: `<div class="modal-media"><div class="modal-media-placeholder mobile-bg">📱 [Tarihin Efsaneleri Uygulaması]</div></div>`,
+        tagline: "Google App Jam 2024 için hazırlanan proje, tarihin efsanevi şahsiyetlerini ve mücadelelerini modern oyun mekanikleriyle bir araya getiren interaktif ve eğitici bir mobil oyun uygulamasıdır.",
+        media: `<div class="modal-media"><img src="assets/tarih-efsaneleri.png" alt="Tarihin Efsaneleri Mobil" class="modal-image" style="width: 100%; max-height: 360px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-glass);"></div>`,
         description: `
-            <p>Tarihe ilgi duyan kullanıcılar için Flutter SDK ve Dart dili kullanılarak geliştirilmiş, Android ve iOS platformlarında çalışan etkileşimli bir tarih ve hikaye uygulamasıdır.</p>
-            <p>Fatih Sultan Mehmet, Mustafa Kemal Atatürk, Julius Caesar gibi tarihi figürlerin efsanevi hikayelerini, savaş stratejilerini ve dönemin koşullarını kart tasarımları ve ses efektleriyle sunar.</p>
+            <p>Google App Jam 2024 maratonu kapsamında geliştirilen bu proje; dünya tarihine yön vermiş efsanevi kahramanların destansı mücadelelerini ve tarihi dönüm noktalarını dijital dünyaya taşıyarak, oyunculara hem eğitici hem de sürükleyici bir oyun mekaniği eşliğinde interaktif bir keşif deneyimi sunmayı amaçlayan yenilikçi bir mobil uygulama projesidir.</p>
             <h4>Öne Çıkan Özellikler:</h4>
             <ul class="modal-features">
-                <li><strong>Flutter (Dart)</strong> ile tek kod tabanından hem Android hem iOS derlemesi.</li>
-                <li>Hikayelerin ve kullanıcı puanlarının cihaz içinde saklanması için **SQLite (sqflite)** entegrasyonu.</li>
-                <li>Akıcı sayfa geçişleri, kahraman animasyonları (Hero animations) ve sesli hikaye dinleme modu.</li>
-                <li>Karanlık mod desteği ve Material 3 tasarım diline uygun estetik arayüz.</li>
+                <li><strong>Google App Jam 2024 Tasarımı</strong>: Kısıtlı sürede geliştirilmiş ödüllü konsept çalışması.</li>
+                <li><strong>Eğitici Oyun Kurgusu</strong>: Tarihsel olayları ve figürleri oyun mekanikleriyle eğlenceli şekilde öğretme.</li>
+                <li><strong>Kullanıcı Dostu Mobil Arayüz</strong>: Mobil cihazlara özel tasarlanmış akıcı sayfa geçişleri ve görsel tasarımlar.</li>
             </ul>
         `,
         github: "https://github.com/IHuseyinACAN/Tarihin-Efsaneleri-Mobil-app",
@@ -326,17 +317,15 @@ const projectDetails = {
         category: "Mobil Geliştirme",
         categoryKey: "mobile",
         techs: ["Flutter", "Firebase", "Realtime DB", "Push Notifications"],
-        tagline: "Firebase entegrasyonlu, ekipler arası gerçek zamanlı iş birliği ve görev takip uygulaması.",
-        media: `<div class="modal-media"><div class="modal-media-placeholder mobile-bg-2">👥 [TAKIM16 Mobil Arayüzü]</div></div>`,
+        tagline: "TAKIM16, bir geliştirici ekibinin güçlerini birleştirerek iş birliği içinde ve modern yazılım standartlarına uygun olarak tasarladığı ortak bir uygulama geliştirme projesidir.",
+        media: `<div class="modal-media"><img src="assets/takim16.png" alt="TAKIM16 Mobil" class="modal-image" style="width: 100%; max-height: 360px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border-glass);"></div>`,
         description: `
-            <p>TAKIM16, ekip çalışması ve ortak proje geliştirme süreçlerinde koordinasyon sağlamak amacıyla geliştirilmiş, gerçek zamanlı iş birliği imkanı sunan bir mobil uygulamadır.</p>
-            <p>Kullanıcılar proje takımları oluşturabilir, birbirlerine görev atayabilir, ortak takvim üzerinden teslim tarihlerini yönetebilirer ve uygulama içi anlık mesajlaşma ile iletişim kurabilirler.</p>
+            <p>TAKIM16; teknoloji odaklı bir geliştirme kampı veya yazılım akademisi bünyesinde, kolektif bir çalışma disipliniyle hayata geçirilmiş, takım üyelerinin tasarım, veri yönetimi ve programlama yeteneklerini bir araya getirerek işevsel bir dijital çözümü hedefleyen ortak bir yazılım ve uygulama geliştirme projesidir.</p>
             <h4>Öne Çıkan Özellikler:</h4>
             <ul class="modal-features">
-                <li><strong>Flutter</strong> arayüzü ile uyumlu çalışan <strong>Firebase Realtime Database & Firestore</strong> arka planı.</li>
-                <li>Google ve e-posta ile giriş imkanı sunan Firebase Authentication altyapısı.</li>
-                <li>Uygulama arka planda olsa dahi anlık bildirim gönderen Firebase Cloud Messaging (FCM) entegrasyonu.</li>
-                <li>Gelişmiş rol yönetimi (Yönetici, Editör, Üye) ve interaktif görev kontrol paneli (Kanban Board tarzında).</li>
+                <li><strong>Takım Çalışması Entegrasyonu</strong>: Firebase ile gerçek zamanlı veri akışı ve senkronizasyon.</li>
+                <li><strong>Görev Takip Paneli (Kanban)</strong>: Ekip üyelerine görev atama, teslim tarihi belirleme ve durum güncelleme.</li>
+                <li><strong>Anlık Bildirim Desteği</strong>: Görev değişiklikleri veya yeni mesajlarda push bildirim gönderimi.</li>
             </ul>
         `,
         github: "https://github.com/HomamAbosaleh/TAKIM16",
@@ -375,6 +364,14 @@ document.addEventListener("DOMContentLoaded", () => {
     initSkillsAnimation();
     initFolderClickEvents();
     initSkillsConstellation();
+    initMusicPlayer();
+    initImageLightbox();
+    
+    // Dynamically hot-reload portfolio details when changes are saved in the hidden admin panel
+    window.addEventListener("portfolio-data-updated", () => {
+        initOrbitalTimeline();
+        initSkillsConstellation();
+    });
 });
 
 /* ==========================================================================
@@ -432,7 +429,7 @@ function initMobileMenu() {
    ========================================================================== */
 function initHeroTypewriter() {
     const target = document.getElementById("dynamic-role");
-    const words = ["Software Engineer", "Robotics Maker", "Full-Stack Creator", "Tech Innovator"];
+    const words = ["Yazılımcı", "Diplomasız Mühendis", "Uykusuz Kod Bükücü", "Robotik Sever", "Hayalperest", "Çay Sever"];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -508,6 +505,9 @@ function init3DTilt() {
    ORBITAL TIMELINE & ACHIEVEMENTS INTERACTIONS
    ========================================================================== */
 function initOrbitalTimeline() {
+    // Dynamically render achievement satellites
+    renderDynamicAchievements();
+
     const satellites = document.querySelectorAll(".orbital-satellite-node");
     const detailCard = document.getElementById("orbital-detail-card");
     const detailBadge = document.getElementById("detail-badge");
@@ -518,8 +518,6 @@ function initOrbitalTimeline() {
     function setupOrbitStyles() {
         if (window.innerWidth > 768) {
             satellites.forEach(sat => {
-                const r = sat.getAttribute("style");
-                // Style içindeki radius değerlerini CSS değişkenlerine yollayalım
                 const radius = sat.style.getPropertyValue("--orbit-radius").trim();
                 sat.style.setProperty("--orbit-radius", radius);
             });
@@ -530,6 +528,7 @@ function initOrbitalTimeline() {
 
     // Kartı güncelleme fonksiyonu
     function updateDetail(title, desc, badge) {
+        if (!detailCard) return;
         detailCard.classList.remove("show");
         
         setTimeout(() => {
@@ -576,6 +575,78 @@ function initOrbitalTimeline() {
                 openAchievementModal(title, desc, badge, icon);
             }
         });
+    });
+}
+
+function renderDynamicAchievements() {
+    const container = document.querySelector(".orbital-container");
+    if (!container) return;
+
+    // Remove existing ones
+    const existingSats = container.querySelectorAll(".orbital-satellite-node");
+    existingSats.forEach(s => s.remove());
+    const existingPaths = container.querySelectorAll(".orbit-path");
+    existingPaths.forEach(p => p.remove());
+
+    const data = window.getStoredPortfolioData ? window.getStoredPortfolioData() : null;
+    const achievements = data ? data.achievements : [
+        {
+            title: "Google Yapay Zeka Akademisi",
+            badge: "Bursiyer (2023-2024)",
+            desc: "2023-2024 yılları arasında prestijli Google Yapay Zeka Akademisi'ne kabul edilerek ileri düzey AI/ML eğitimleri ve mentorluk desteği aldım.",
+            icon: "🤖",
+            radius: 170,
+            speed: "24s"
+        },
+        {
+            title: "T3 Vakfı (Türkiye Teknoloji Takımı)",
+            badge: "T3 Bursiyeri",
+            desc: "Milli Teknoloji Hamlesi vizyonu doğrultusunda Türkiye Teknoloji Takımı Vakfı bursiyeri olmaya hak kazanarak projelerimde desteklendim.",
+            icon: "🚀",
+            radius: 240,
+            speed: "28s"
+        },
+        {
+            title: "Teknofest Yarı Finali",
+            badge: "E.nimal Yarı Finalist",
+            desc: "Yapay zeka ve teknoloji temalı 'E.nimal' projemiz ile Teknofest yarışmalarında yarı finale kadar yükselerek projemizi başarıyla sunduk.",
+            icon: "🎖️",
+            radius: 310,
+            speed: "32s"
+        },
+        {
+            title: "Sertifikalar ve Eğitimler",
+            badge: "Çok Sayıda Sertifika",
+            desc: "Gerek yazılım (Web, Mobil, Veritabanı) gerekse robotik alanda katıldığım onlarca akademik ve profesyonel eğitimi başarıyla tamamlayıp sertifikalar aldım.",
+            icon: "📜",
+            radius: 380,
+            speed: "36s"
+        }
+    ];
+
+    // Append orbit paths and satellites
+    achievements.forEach((ach, index) => {
+        // Path
+        const path = document.createElement("div");
+        path.className = `orbit-path orbit-${index + 1}`;
+        path.style.width = `${ach.radius * 2}px`;
+        path.style.height = `${ach.radius * 2}px`;
+        container.appendChild(path);
+
+        // Satellite node
+        const sat = document.createElement("div");
+        sat.className = "orbital-satellite-node";
+        if (index === 0) sat.classList.add("active");
+        sat.style.setProperty("--orbit-index", index + 1);
+        sat.style.setProperty("--orbit-speed", ach.speed);
+        sat.style.setProperty("--orbit-radius", `${ach.radius}px`);
+        sat.setAttribute("data-title", ach.title);
+        sat.setAttribute("data-desc", ach.desc);
+        sat.setAttribute("data-badge", ach.badge);
+        sat.setAttribute("data-icon", ach.icon);
+
+        sat.innerHTML = `<div class="satellite-dot">${ach.icon}</div>`;
+        container.appendChild(sat);
     });
 }
 
@@ -1046,7 +1117,7 @@ function getFallbackStats(projectId) {
         "robot-kol": { stars: 12, forks: 3, language: "C++" },
         "taret": { stars: 8, forks: 2, language: "C++" },
         "odemy": { stars: 34, forks: 15, language: "PHP" },
-        "iirce": { stars: 18, forks: 5, language: "HTML" },
+        "siirce": { stars: 18, forks: 5, language: "HTML" },
         "ipo": { stars: 22, forks: 8, language: "JavaScript" },
         "body-metrics": { stars: 19, forks: 6, language: "JavaScript" },
         "portfolio": { stars: 45, forks: 14, language: "JavaScript" },
@@ -1331,30 +1402,28 @@ function injectRoboticsControls(projectId) {
    SKILLS NETWORK CONSTELLATION VIEW SYSTEM (HTML5 CANVAS)
    ========================================================================== */
 function initSkillsConstellation() {
-    const btnGrid = document.getElementById("btn-skills-grid");
-    const btnConst = document.getElementById("btn-skills-constellation");
     const container = document.getElementById("skills-constellation-container");
-    const wrapper = document.getElementById("skills-wrapper");
     const canvas = document.getElementById("skills-canvas");
     const tooltip = document.getElementById("constellation-tooltip");
     
-    if (!canvas || !btnGrid || !btnConst || !container || !wrapper) return;
+    if (!canvas || !container) return;
     
     const ctx = canvas.getContext("2d");
     let animationFrameId = null;
-    let isConstellationActive = false;
+    let isConstellationActive = true;
     
-    const skillsData = [
-        { name: "Arduino / Raspberry Pi", value: 95, category: "robotics" },
-        { name: "C / C++ (Gömülü Yazılım)", value: 90, category: "robotics" },
-        { name: "Robot İşletim Sistemi (ROS)", value: 70, category: "robotics" },
-        { name: "Motor Sürücüler & Sensörler", value: 92, category: "robotics" },
-        { name: "CAD Modelleme / Donanım Tasarımı", value: 80, category: "robotics" },
-        { name: "Web Geliştirme (HTML, CSS, JS, PHP)", value: 88, category: "software" },
-        { name: "Mobil Geliştirme (Flutter / Dart)", value: 85, category: "software" },
-        { name: "Masaüstü Geliştirme (C# / WPF / WinForms)", value: 82, category: "software" },
-        { name: "Veritabanı Yönetimi (SQL / MySQL)", value: 86, category: "software" },
-        { name: "Yapay Zeka & Python (Giriş / Orta)", value: 75, category: "software" }
+    // Get certificate data dynamically
+    const data = window.getStoredPortfolioData ? window.getStoredPortfolioData() : null;
+    const certificates = data ? data.certificates : [
+        { name: "Web Geliştirme (HTML, CSS, JS, PHP)", category: "web" },
+        { name: "Veritabanı Yönetimi (SQL / MySQL)", category: "web" },
+        { name: "C# / .NET / WPF Programlama", category: "web" },
+        { name: "Arduino & Raspberry Pi Donanım", category: "robotics" },
+        { name: "C / C++ (Gömülü Yazılım)", category: "robotics" },
+        { name: "Motor Sürücüler & Sensörler", category: "robotics" },
+        { name: "Robot İşletim Sistemi (ROS)", category: "robotics" },
+        { name: "Google AI Academy Eğitimi", category: "ai" },
+        { name: "Yapay Zeka & Python (TensorFlow)", category: "ai" }
     ];
     
     let nodes = [];
@@ -1373,25 +1442,82 @@ function initSkillsConstellation() {
     function initNodes() {
         const w = container.offsetWidth;
         const h = container.offsetHeight;
-        nodes = skillsData.map((skill, index) => {
-            const angle = (index / skillsData.length) * Math.PI * 2;
-            const radius = 22 + (skill.value - 70) * 0.3;
-            const startR = Math.min(w, h) * 0.3;
+        
+        // Count category nodes to distribute them evenly
+        const categoryCounts = {};
+        certificates.forEach(c => {
+            categoryCounts[c.category] = (categoryCounts[c.category] || 0) + 1;
+        });
+        
+        const categoryIndices = {};
+        
+        nodes = certificates.map((cert, index) => {
+            categoryIndices[cert.category] = (categoryIndices[cert.category] || 0) + 1;
+            const catIndex = categoryIndices[cert.category];
+            const totalInCat = categoryCounts[cert.category];
+            
+            // Distribute nodes evenly in a circle around category center to prevent overlap
+            const angle = (catIndex * 2 * Math.PI) / totalInCat;
+            const distRadius = 75 + (catIndex % 2) * 20; // alternation prevents concentric overlap
+            const offsetX = Math.cos(angle) * distRadius;
+            const offsetY = Math.sin(angle) * distRadius;
+            
+            let centerX = w / 2;
+            let centerY = h / 2;
+            let color = "#6366f1";
+            
+            if (cert.category === "web") {
+                centerX = w * 0.25;
+                centerY = h * 0.5;
+                color = "#6366f1"; // Indigo
+            } else if (cert.category === "robotics") {
+                centerX = w * 0.75;
+                centerY = h * 0.5;
+                color = "#a855f7"; // Purple
+            } else if (cert.category === "ai") {
+                centerX = w * 0.5;
+                centerY = h * 0.35;
+                color = "#06b6d4"; // Cyan
+            }
+            
+            const targetX = centerX + offsetX;
+            const targetY = centerY + offsetY;
+            const radius = 23;
+            
+            // Generate organic dendrites (cellular branches) for biological neural structure
+            const dendrites = [];
+            const dendriteCount = 4 + Math.floor(Math.random() * 3);
+            for (let k = 0; k < dendriteCount; k++) {
+                const baseAngle = (k * 2 * Math.PI) / dendriteCount + (Math.random() - 0.5) * 0.4;
+                const len = radius * (1.1 + Math.random() * 0.5);
+                const bAngle = baseAngle + (Math.random() - 0.5) * 0.7;
+                const bLen = len * (0.3 + Math.random() * 0.3);
+                dendrites.push({
+                    angle: baseAngle,
+                    length: len,
+                    branchAngle: bAngle,
+                    branchLength: bLen
+                });
+            }
+            
             return {
-                name: skill.name,
-                value: skill.value,
-                category: skill.category,
+                name: cert.name,
+                category: cert.category,
                 radius: radius,
-                x: w / 2 + Math.cos(angle) * startR + (Math.random() - 0.5) * 40,
-                y: h / 2 + Math.sin(angle) * startR + (Math.random() - 0.5) * 40,
+                x: targetX + (Math.random() - 0.5) * 30, // start close to target
+                y: targetY + (Math.random() - 0.5) * 30,
                 vx: (Math.random() - 0.5) * 0.2,
                 vy: (Math.random() - 0.5) * 0.2,
-                accentColor: skill.category === "robotics" ? "#a855f7" : "#6366f1"
+                targetX: targetX,
+                targetY: targetY,
+                accentColor: color,
+                dendrites: dendrites
             };
         });
     }
     
     function updateAndDraw() {
+        if (!isConstellationActive) return;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
         const w = container.offsetWidth;
@@ -1400,31 +1526,75 @@ function initSkillsConstellation() {
         const isLightTheme = document.documentElement.getAttribute("data-theme") === "light";
         const nodeBgColor = isLightTheme ? "rgba(15, 23, 42, 0.04)" : "rgba(255, 255, 255, 0.04)";
         const nodeTextColor = isLightTheme ? "#0f172a" : "#ffffff";
-        const lineStrokeColor = isLightTheme ? "rgba(15, 23, 42, 0.06)" : "rgba(255, 255, 255, 0.06)";
-        const activeLineStrokeColor = isLightTheme ? "rgba(99, 102, 241, 0.35)" : "rgba(168, 85, 247, 0.35)";
         
+        // Draw background glial cells / micro-dust for structural brain depth
+        ctx.globalAlpha = isLightTheme ? 0.08 : 0.15;
+        ctx.fillStyle = isLightTheme ? "#0f172a" : "#ffffff";
+        for (let k = 0; k < 25; k++) {
+            const gliaX = (w * 0.04 + (k * 133)) % w;
+            const gliaY = (h * 0.07 + (k * 277)) % h;
+            ctx.beginPath();
+            ctx.arc(gliaX, gliaY, 0.8, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        ctx.globalAlpha = 1.0;
+        
+        // Update nodes: applying attraction forces towards their individual target anchors
         nodes.forEach(node => {
+            // Soft spring force towards individual target anchors
+            const fx = (node.targetX - node.x) * 0.0006;
+            const fy = (node.targetY - node.y) * 0.0006;
+            
+            node.vx += fx;
+            node.vy += fy;
+            
+            // Damping velocity
+            node.vx *= 0.97;
+            node.vy *= 0.97;
+            
+            // Update position
             node.x += node.vx;
             node.y += node.vy;
             
-            if (node.x - node.radius < 0) {
-                node.x = node.radius;
-                node.vx *= -1;
-            } else if (node.x + node.radius > w) {
-                node.x = w - node.radius;
-                node.vx *= -1;
-            }
-            
-            if (node.y - node.radius < 0) {
-                node.y = node.radius;
-                node.vy *= -1;
-            } else if (node.y + node.radius > h) {
-                node.y = h - node.radius;
-                node.vy *= -1;
-            }
+            // Collision boundaries
+            if (node.x - node.radius < 0) { node.x = node.radius; node.vx *= -0.5; }
+            if (node.x + node.radius > w) { node.x = w - node.radius; node.vx *= -0.5; }
+            if (node.y - node.radius < 0) { node.y = node.radius; node.vy *= -0.5; }
+            if (node.y + node.radius > h) { node.y = h - node.radius; node.vy *= -0.5; }
         });
         
-        ctx.lineWidth = 1;
+        // Node-to-node collision resolution and repulsion (prevent overlapping)
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const n1 = nodes[i];
+                const n2 = nodes[j];
+                const dx = n2.x - n1.x;
+                const dy = n2.y - n1.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                const minDist = n1.radius + n2.radius + 35; // Added padding to avoid overlapping names
+                
+                if (dist < minDist) {
+                    const overlap = minDist - dist;
+                    const nx = dx / (dist || 1);
+                    const ny = dy / (dist || 1);
+                    
+                    // Positional correction: move them apart immediately so they never overlap on screen
+                    n1.x -= nx * overlap * 0.5;
+                    n1.y -= ny * overlap * 0.5;
+                    n2.x += nx * overlap * 0.5;
+                    n2.y += ny * overlap * 0.5;
+                    
+                    // Bounce velocities
+                    const force = overlap * 0.08;
+                    n1.vx -= nx * force;
+                    n1.vy -= ny * force;
+                    n2.vx += nx * force;
+                    n2.vy += ny * force;
+                }
+            }
+        }
+        
+        // Draw Synaptic Connections (Neural Network Paths) & Action Potentials (glowing impulses)
         for (let i = 0; i < nodes.length; i++) {
             for (let j = i + 1; j < nodes.length; j++) {
                 const n1 = nodes[i];
@@ -1433,27 +1603,100 @@ function initSkillsConstellation() {
                 const dy = n2.y - n1.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 
-                if (dist < 160) {
-                    const isHoveredConnection = (mouse.hoveredNode === n1 || mouse.hoveredNode === n2);
+                let drawLine = false;
+                let isHoveredConnection = (mouse.hoveredNode === n1 || mouse.hoveredNode === n2);
+                let opacity = 0;
+                
+                if (n1.category === n2.category) {
+                    // Strong connection within cluster
+                    if (dist < 190) {
+                        drawLine = true;
+                        opacity = isHoveredConnection ? 0.35 : 0.12;
+                    }
+                } else {
+                    // Weak connection between different clusters to keep them as a single brain
+                    if (dist < 230) {
+                        drawLine = true;
+                        opacity = isHoveredConnection ? 0.12 : 0.03;
+                    }
+                }
+                
+                if (drawLine) {
                     ctx.beginPath();
                     ctx.moveTo(n1.x, n1.y);
                     ctx.lineTo(n2.x, n2.y);
                     
                     if (isHoveredConnection) {
-                        ctx.strokeStyle = activeLineStrokeColor;
+                        ctx.strokeStyle = n1.category === n2.category ? n1.accentColor : "rgba(99, 102, 241, 0.25)";
                         ctx.lineWidth = 1.5;
                     } else {
-                        ctx.strokeStyle = lineStrokeColor;
+                        ctx.strokeStyle = isLightTheme ? `rgba(15, 23, 42, ${opacity})` : `rgba(255, 255, 255, ${opacity})`;
                         ctx.lineWidth = 0.8;
                     }
                     ctx.stroke();
+
+                    // Animate action potentials (signals traversing along axons)
+                    const speed = 0.0018;
+                    const timeOffset = (i * 12.3 + j * 7.7);
+                    const t = (Date.now() * speed + timeOffset) % 1.0;
+                    
+                    const impulseX = n1.x + dx * t;
+                    const impulseY = n1.y + dy * t;
+                    
+                    ctx.beginPath();
+                    ctx.arc(impulseX, impulseY, 2.2, 0, Math.PI * 2);
+                    ctx.fillStyle = n1.category === n2.category ? n1.accentColor : "#06b6d4";
+                    ctx.shadowColor = ctx.fillStyle;
+                    ctx.shadowBlur = 6;
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
                 }
             }
         }
         
+        // Draw Neural Nodes
         nodes.forEach(node => {
             const isHovered = mouse.hoveredNode === node;
             
+            // Draw Dendrites (Cellular branches extending outwards)
+            ctx.strokeStyle = node.accentColor;
+            ctx.lineWidth = 0.8;
+            ctx.globalAlpha = isHovered ? 0.45 : 0.18;
+            
+            if (node.dendrites) {
+                node.dendrites.forEach(den => {
+                    const x1 = node.x + Math.cos(den.angle) * node.radius;
+                    const y1 = node.y + Math.sin(den.angle) * node.radius;
+                    const x2 = node.x + Math.cos(den.angle) * den.length;
+                    const y2 = node.y + Math.sin(den.angle) * den.length;
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(x1, y1);
+                    // Draw curved biological dendrite
+                    ctx.quadraticCurveTo(
+                        node.x + Math.cos(den.angle + 0.1) * (den.length * 0.6),
+                        node.y + Math.sin(den.angle + 0.1) * (den.length * 0.6),
+                        x2, y2
+                    );
+                    ctx.stroke();
+                    
+                    // Minor branch
+                    if (den.branchLength > 0) {
+                        const bx = x1 + (x2 - x1) * 0.55;
+                        const by = y1 + (y2 - y1) * 0.55;
+                        const endBx = bx + Math.cos(den.branchAngle) * den.branchLength;
+                        const endBy = by + Math.sin(den.branchAngle) * den.branchLength;
+                        
+                        ctx.beginPath();
+                        ctx.moveTo(bx, by);
+                        ctx.lineTo(endBx, endBy);
+                        ctx.stroke();
+                    }
+                });
+            }
+            ctx.globalAlpha = 1.0; // Reset alpha
+            
+            // Draw Soma (Neuron cell body)
             ctx.beginPath();
             ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
             
@@ -1474,11 +1717,19 @@ function initSkillsConstellation() {
             ctx.stroke();
             ctx.shadowBlur = 0;
             
-            ctx.beginPath();
-            ctx.arc(node.x, node.y, 3, 0, Math.PI * 2);
-            ctx.fillStyle = node.accentColor;
-            ctx.fill();
+            // Draw central nucleus (Pulsing organically like a firing cell)
+            const pulseScale = 1.0 + Math.sin(Date.now() * 0.003 + node.x * 0.05) * 0.25;
+            const nucleusRadius = 3.2 * pulseScale;
             
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, nucleusRadius, 0, Math.PI * 2);
+            ctx.fillStyle = node.accentColor;
+            ctx.shadowColor = node.accentColor;
+            ctx.shadowBlur = 8;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+            
+            // Node labels
             ctx.font = `500 9.5px "Inter", sans-serif`;
             ctx.fillStyle = nodeTextColor;
             ctx.textAlign = "center";
@@ -1496,9 +1747,7 @@ function initSkillsConstellation() {
             }
         });
         
-        if (isConstellationActive) {
-            animationFrameId = requestAnimationFrame(updateAndDraw);
-        }
+        animationFrameId = requestAnimationFrame(updateAndDraw);
     }
     
     function checkHover(e) {
@@ -1522,7 +1771,7 @@ function initSkillsConstellation() {
         if (found !== mouse.hoveredNode) {
             mouse.hoveredNode = found;
             if (found) {
-                tooltip.innerHTML = `<strong>${found.name}</strong><br>Uzmanlık: %${found.value}`;
+                tooltip.innerHTML = `<strong>${found.name}</strong>`;
                 tooltip.style.left = `${mouseX}px`;
                 tooltip.style.top = `${mouseY - 10}px`;
                 tooltip.style.opacity = "1";
@@ -1540,39 +1789,168 @@ function initSkillsConstellation() {
     canvas.addEventListener("mousemove", checkHover);
     canvas.addEventListener("mouseleave", () => {
         mouse.hoveredNode = null;
-        tooltip.style.opacity = "0";
-        tooltip.style.transform = "translate(-50%, -100%) scale(0.9)";
+        if (tooltip) {
+            tooltip.style.opacity = "0";
+            tooltip.style.transform = "translate(-50%, -100%) scale(0.9)";
+        }
     });
     
-    btnConst.addEventListener("click", () => {
-        btnGrid.classList.remove("active");
-        btnConst.classList.add("active");
-        
-        wrapper.style.display = "none";
-        container.style.display = "flex";
-        
-        isConstellationActive = true;
-        resizeCanvas();
-        initNodes();
-        if (animationFrameId) cancelAnimationFrame(animationFrameId);
-        updateAndDraw();
-    });
-    
-    btnGrid.addEventListener("click", () => {
-        btnConst.classList.remove("active");
-        btnGrid.classList.add("active");
-        
-        container.style.display = "none";
-        wrapper.style.display = "grid";
-        
-        isConstellationActive = false;
-        if (animationFrameId) cancelAnimationFrame(animationFrameId);
-        tooltip.style.opacity = "0";
-    });
+    // Auto start the constellation immediately
+    resizeCanvas();
+    initNodes();
+    if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    updateAndDraw();
     
     window.addEventListener("resize", () => {
-        if (isConstellationActive) {
-            resizeCanvas();
+        resizeCanvas();
+    });
+}
+
+/* ==========================================================================
+   FLOATING GLASSMORPHISM MUSIC PLAYER WIDGET
+   ========================================================================== */
+function initMusicPlayer() {
+    const playBtn = document.getElementById("music-play-btn");
+    const nextBtn = document.getElementById("music-next-btn");
+    const playIcon = document.getElementById("play-icon");
+    const pauseIcon = document.getElementById("pause-icon");
+    const trackTitle = document.getElementById("music-track-title");
+    const trackArtist = document.getElementById("music-track-artist");
+    const bgAudio = document.getElementById("bg-audio");
+    const playerWidget = document.getElementById("floating-music-player");
+
+    if (!playBtn || !bgAudio || !playerWidget) return;
+
+    // Playlist: stable local lofi ambient tunes (100% reliable, offline-friendly)
+    const playlist = [
+        {
+            title: "Focus Ambient Synth",
+            artist: "SoundHelix Song 1",
+            url: "assets/music1.mp3"
+        },
+        {
+            title: "Melodic Coding Lofi",
+            artist: "SoundHelix Song 4",
+            url: "assets/music2.mp3"
+        },
+        {
+            title: "Deep Cyber Chill",
+            artist: "SoundHelix Song 8",
+            url: "assets/music3.mp3"
+        }
+    ];
+
+    let currentTrackIndex = 0;
+    let isPlaying = false;
+
+    // Load track
+    function loadTrack(index) {
+        const track = playlist[index];
+        bgAudio.src = track.url;
+        bgAudio.load(); // Force browser to reload the audio element source
+        trackTitle.textContent = track.title;
+        trackArtist.textContent = track.artist;
+    }
+
+    // Set initial track
+    loadTrack(currentTrackIndex);
+
+    // Volume control slider
+    const volumeSlider = document.getElementById("music-volume-slider");
+    if (volumeSlider) {
+        bgAudio.volume = volumeSlider.value;
+        volumeSlider.addEventListener("input", (e) => {
+            bgAudio.volume = e.target.value;
+        });
+    }
+ 
+    // Toggle Play/Pause
+    function togglePlay() {
+        if (isPlaying) {
+            bgAudio.pause();
+            playIcon.style.display = "block";
+            pauseIcon.style.display = "none";
+            playerWidget.classList.remove("playing");
+            isPlaying = false;
+        } else {
+            bgAudio.play().then(() => {
+                playIcon.style.display = "none";
+                pauseIcon.style.display = "block";
+                playerWidget.classList.add("playing");
+                isPlaying = true;
+            }).catch(err => {
+                console.warn("Autoplay block prevents playing music before user interaction.", err);
+                // Try again without catch to log standard behaviour
+            });
+        }
+    }
+
+    // Next track
+    function nextTrack() {
+        currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+        loadTrack(currentTrackIndex);
+        if (isPlaying) {
+            bgAudio.play().then(() => {
+                playerWidget.classList.add("playing");
+            });
+        }
+    }
+
+    // Event listeners
+    playBtn.addEventListener("click", togglePlay);
+    nextBtn.addEventListener("click", nextTrack);
+
+    // Auto-advance when track ends
+    bgAudio.addEventListener("ended", () => {
+        nextTrack();
+    });
+}
+
+/* ==========================================================================
+   IMAGE LIGHTBOX SYSTEM (ZOOM PORTFOLIO IMAGES)
+   ========================================================================== */
+function initImageLightbox() {
+    const lightbox = document.getElementById("lightbox-overlay");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.getElementById("lightbox-close-btn");
+    
+    if (!lightbox || !lightboxImg) return;
+    
+    // Event delegation on document to catch dynamically loaded images
+    document.addEventListener("click", (e) => {
+        const modalImg = e.target.closest(".modal-image") || e.target.closest(".modal-media img");
+        if (modalImg && modalImg.tagName === "IMG") {
+            const src = modalImg.getAttribute("src");
+            const alt = modalImg.getAttribute("alt") || "Büyütülmüş Görsel";
+            if (src) {
+                lightboxImg.setAttribute("src", src);
+                lightboxImg.setAttribute("alt", alt);
+                lightbox.classList.add("show");
+            }
+        }
+    });
+    
+    function closeLightbox() {
+        lightbox.classList.remove("show");
+        setTimeout(() => {
+            lightboxImg.setAttribute("src", "");
+        }, 300); // Clear source after fade-out transition
+    }
+    
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closeLightbox);
+    }
+    
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox || e.target === lightboxImg) {
+            closeLightbox();
+        }
+    });
+    
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lightbox.classList.contains("show")) {
+            closeLightbox();
         }
     });
 }
+

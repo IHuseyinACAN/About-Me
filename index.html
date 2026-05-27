@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İ. Hüseyin Acan | Portfolyo</title>
+    <title>S. Hüseyin Acan | Portfolyo</title>
     <!-- SEO Meta Etiketleri -->
-    <meta name="description" content="İ. Hüseyin Acan - Yazılım Geliştirme (Web, Mobil, Masaüstü) ve Robotik Alanındaki Projeler, Başarılar ve Burslar Portfolyosu.">
-    <meta name="keywords" content="Hüseyin Acan, Portfolyo, Robotik, Yazılım, Web Geliştirme, Mobil Uygulama, Masaüstü Uygulama, Dumlupınar Üniversitesi, Google AI Bursiyeri, T3 Vakfı, Teknofest">
-    <meta name="author" content="İ. Hüseyin Acan">
+    <meta name="description" content="S. Hüseyin Acan - Yazılım Geliştirme (Web, Mobil, Masaüstü) ve Robotik Alanındaki Projeler, Başarılar ve Burslar Portfolyosu.">
+    <meta name="keywords" content="S. Hüseyin Acan, Hüseyin Acan, Portfolyo, Robotik, Yazılım, Web Geliştirme, Mobil Uygulama, Masaüstü Uygulama, Dumlupınar Üniversitesi, Google AI Bursiyeri, T3 Vakfı, Teknofest">
+    <meta name="author" content="S. Hüseyin Acan">
     <script>
         // Set initial theme as fast as possible to avoid flash
         const savedTheme = localStorage.getItem("portfolio-theme") || "dark";
@@ -19,6 +19,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Stil Dosyası -->
     <link rel="stylesheet" href="style.css?v=2.1">
+    <link rel="stylesheet" href="music-player.css">
+    <link rel="stylesheet" href="admin-panel.css">
 </head>
 <body>
 
@@ -33,7 +35,7 @@
     <header class="navbar-header">
         <nav class="navbar" id="navbar">
             <div class="nav-logo">
-                <a href="#hero">HA<span>.</span></a>
+                <a href="#hero">&lt;HA&gt;</a>
             </div>
             <div class="nav-links" id="nav-links">
                 <a href="#projects" class="nav-link">Projeler</a>
@@ -78,7 +80,7 @@
         <!-- Hero Giriş Bölümü -->
         <section id="hero" class="hero-section">
             <div class="hero-content">
-                <h1 class="hero-title">İ. Hüseyin Acan</h1>
+                <h1 class="hero-title">S. Hüseyin Acan</h1>
                 <div class="hero-subtitle-container">
                     <span class="hero-subtitle-static">Ben</span>
                     <span class="hero-subtitle-dynamic" id="dynamic-role">Software Engineer</span>
@@ -194,14 +196,14 @@
                                     <div class="folder-card-overlay"></div>
                                     <span class="folder-card-title">Odemy</span>
                                 </div>
-                                <div class="folder-project-card" data-project-id="iirce">
+                                <div class="folder-project-card" data-project-id="siirce">
                                     <div class="folder-card-preview web-bg-2">
                                         <svg class="folder-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </div>
                                     <div class="folder-card-overlay"></div>
-                                    <span class="folder-card-title">IIRCE</span>
+                                    <span class="folder-card-title">Şiirce</span>
                                 </div>
                                 <div class="folder-project-card" data-project-id="ipo">
                                     <div class="folder-card-preview web-bg-3">
@@ -406,8 +408,8 @@
                         <div class="center-content">
                             <div class="center-icon">🏆</div>
                             <h3>Dumlupınar Üniversitesi</h3>
-                            <span class="center-tag">Dönem Birincisi</span>
-                            <span class="center-year">2023 - 2025</span>
+                            <span class="center-tag">2023 - 2025 Dönemi</span>
+                            <span class="center-year">Birincisi</span>
                         </div>
                     </div>
 
@@ -442,115 +444,18 @@
             </div>
         </section>
 
-        <!-- Yetenekler Bölümü -->
+        <!-- Sertifikalar Bölümü -->
         <section id="skills" class="skills-section">
             <div class="section-container">
                 <div class="section-header">
-                    <h2 class="section-title">Yetenek Setim</h2>
-                    <p class="section-subtitle">Yazılım ve robotik mühendisliği alanında uzmanlaştığım konular</p>
+                    <h2 class="section-title">Sertifikalarım</h2>
+                    <p class="section-subtitle">Eğitimlerim ve kazandığım profesyonel sertifikalar</p>
                 </div>
 
-                <div class="skills-view-selector">
-                    <button class="skills-view-btn active" id="btn-skills-grid">Sütun Görünümü</button>
-                    <button class="skills-view-btn" id="btn-skills-constellation">Ağ Görünümü</button>
-                </div>
-
-                <div class="skills-constellation-container" id="skills-constellation-container" style="display: none;">
+                <div class="skills-constellation-container" id="skills-constellation-container" style="display: flex;">
                     <canvas id="skills-canvas"></canvas>
                     <div class="constellation-tooltip" id="constellation-tooltip"></div>
-                    <p class="constellation-hint">Yetenek düğümlerinin üzerine gelerek detayları ve bağlantıları inceleyebilirsiniz.</p>
-                </div>
-
-                <div class="skills-wrapper" id="skills-wrapper">
-                    <!-- Robotik & Donanım Kartı -->
-                    <div class="skill-category-card">
-                        <div class="skill-card-header">
-                            <span class="category-icon">⚙️</span>
-                            <h3>Robotik & Gömülü Donanım</h3>
-                        </div>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-name-percentage">
-                                    <span>Arduino / Raspberry Pi</span>
-                                    <span>95%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress" style="--percent: 95%;"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-name-percentage">
-                                    <span>C / C++ (Gömülü Yazılım)</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress" style="--percent: 90%;"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-name-percentage">
-                                    <span>Robot İşletim Sistemi (ROS)</span>
-                                    <span>70%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress" style="--percent: 70%;"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-name-percentage">
-                                    <span>Motor Sürücüler & Sensörler</span>
-                                    <span>92%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress" style="--percent: 92%;"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-name-percentage">
-                                    <span>CAD Modelleme / Donanım Tasarımı</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress" style="--percent: 80%;"></div></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Yazılım Geliştirme Kartı -->
-                    <div class="skill-category-card">
-                        <div class="skill-card-header">
-                            <span class="category-icon">💻</span>
-                            <h3>Yazılım Geliştirme</h3>
-                        </div>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-name-percentage">
-                                    <span>Web Geliştirme (HTML, CSS, JS, PHP)</span>
-                                    <span>88%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress" style="--percent: 88%;"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-name-percentage">
-                                    <span>Mobil Geliştirme (Flutter / Dart)</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress" style="--percent: 85%;"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-name-percentage">
-                                    <span>Masaüstü Geliştirme (C# / WPF / WinForms)</span>
-                                    <span>82%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress" style="--percent: 82%;"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-name-percentage">
-                                    <span>Veritabanı Yönetimi (SQL / MySQL)</span>
-                                    <span>86%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress" style="--percent: 86%;"></div></div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-name-percentage">
-                                    <span>Yapay Zeka & Python (Giriş / Orta)</span>
-                                    <span>75%</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress" style="--percent: 75%;"></div></div>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="constellation-hint">Sertifika düğümlerinin üzerine gelerek detayları ve bağlantıları inceleyebilirsiniz.</p>
                 </div>
             </div>
         </section>
@@ -621,8 +526,7 @@
 
     <!-- Footer -->
     <footer class="main-footer">
-        <p>&copy; 2026 İ. Hüseyin Acan. Tüm Hakları Saklıdır.</p>
-        <p class="footer-design">Zarif Glassmorphism Portfolyosu</p>
+        <p>&copy; 2026 S. Hüseyin Acan. Tüm Hakları Saklıdır.</p>
     </footer>
 
     <!-- Detay Modalları -->
@@ -635,7 +539,40 @@
         </div>
     </div>
 
-    <!-- JavaScript Dosyası -->
-    <script src="app.js?v=1.9"></script>
+    <!-- Yüzen Müzik Çalar -->
+    <div id="floating-music-player">
+        <button class="player-play-btn" id="music-play-btn" aria-label="Müziği Başlat/Durdur">
+            <svg viewBox="0 0 24 24" id="play-icon" style="width: 16px; height: 16px;"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+            <svg viewBox="0 0 24 24" id="pause-icon" style="display: none; width: 16px; height: 16px;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" fill="currentColor"/></svg>
+        </button>
+        <div class="player-details">
+            <div class="track-title" id="music-track-title">Chill Coding Lofi</div>
+            <div class="track-artist" id="music-track-artist">Ambient Focus</div>
+        </div>
+        <button class="player-next-btn" id="music-next-btn" aria-label="Sonraki Parça">
+            <svg viewBox="0 0 24 24" style="width: 14px; height: 14px;"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" fill="currentColor"/></svg>
+        </button>
+        <div class="player-volume">
+            <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; color: var(--text-muted, #94a3b8); flex-shrink: 0;"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" fill="currentColor"/></svg>
+            <input type="range" id="music-volume-slider" min="0" max="1" step="0.05" value="0.70" aria-label="Ses Seviyesi">
+        </div>
+        <div class="player-equalizer">
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+        </div>
+        <audio id="bg-audio" loop></audio>
+    </div>
+
+    <!-- Lightbox Overlay (Büyütülmüş Görsel Alanı) -->
+    <div class="lightbox-overlay" id="lightbox-overlay">
+        <button class="lightbox-close" id="lightbox-close-btn">&times;</button>
+        <img class="lightbox-img" id="lightbox-img" src="" alt="Büyütülmüş Görsel">
+    </div>
+
+    <!-- JavaScript Dosyaları -->
+    <script src="admin-panel.js"></script>
+    <script src="app.js?v=2.0"></script>
 </body>
 </html>
