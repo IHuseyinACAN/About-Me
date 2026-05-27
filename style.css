@@ -1024,17 +1024,20 @@ button {
 
 .center-tag {
     display: block;
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.95rem;
+    font-weight: 750;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--accent-cyan);
-    margin-top: 0.4rem;
+    margin-top: 0.2rem;
 }
 
 .center-year {
+    display: block;
     font-size: 0.75rem;
+    font-weight: 500;
     color: var(--text-muted);
+    margin-top: 0.4rem;
 }
 
 @keyframes trophyFloat {
